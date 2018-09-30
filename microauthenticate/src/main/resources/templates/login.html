@@ -1,0 +1,36 @@
+
+<html lang="en-Us" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login to System</title>
+    <link rel="icon" th:href="@{images/icon.png}">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+</head>
+
+<body>
+<div class="center">
+    <div id="login" class="container">
+        <img th:src="@{images/logo_centered.png}" alt="Attijari Bank's logo"/>
+        <br><br>
+        <h1 class="form-signin-heading"><strong>Welcome.</strong> Please Sign in.</h1>
+        <form class="form-signin" name="loginFrom" th:action="@{/login}" method="post">
+            <fieldset>
+                <p><input name="username" id="username" class="form-control" required type="text" value="Username"
+                          onBlur="if(this.value=='')this.value='Username'"
+                          onFocus="if(this.value=='Username')this.value='' " autofocus></p>
+                <!-- JS because of IE support; better: placeholder="Username" -->
+                <p><input name="password" id="password" class="form-control" type="password" required value="Password"
+                          onBlur="if(this.value=='')this.value='Password'"
+                          onFocus="if(this.value=='Password')this.value='' "></p>
+                <!-- JS because of IE support; better: placeholder="Password" -->
+                <!--p><a href="#">Forgot Password?</a></p-->
+                <p><input type="submit" value="Login"></p>
+            </fieldset>
+        </form>
+    </div>
+</div><!-- end login -->
+</body>
+
+</html>
