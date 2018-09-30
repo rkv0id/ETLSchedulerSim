@@ -4,6 +4,7 @@
 }
 
 body {
+  background: #f4f4f4;
   padding: 0;
   margin: 0;
 }
@@ -49,7 +50,7 @@ body {
       -ms-transform: scale(2.4);
           transform: scale(2.4);
   border-radius: 50%;
-  background-color: #f2f5f8;
+  background-color: #eef5cd;
   z-index: -1;
 }
 

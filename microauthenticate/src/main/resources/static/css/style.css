@@ -24,7 +24,7 @@ body {
 	background: #f4f4f4;
 	color: #5a5656;
 	font: 100%/1.5em 'Open Sans', sans-serif;
-  margin: 0;
+  	margin: 0;
 }
 
 a { text-decoration: none; }
@@ -63,7 +63,7 @@ form fieldset input[type="text"], input[type="password"] {
 }
 
 form fieldset input[type="submit"] {
-	background-color: #008dde;
+	background-color: #388dbc;
 	border: none;
 	border-radius: 3px;
 	color: #f4f4f4;
