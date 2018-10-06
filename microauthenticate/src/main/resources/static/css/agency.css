@@ -1,0 +1,22 @@
+body {
+    background: #f4f4f4;
+    color: #5a5656;
+    font: 100%/1.5em 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: capitalize; }
+
+.container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.spec-btn {
+    background-color: #388dbc;
+}

@@ -1,12 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en-Us" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>LDAP Demo</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Agency Console</title>
+    <div th:replace="login :: icon"></div>
+    <meta charset="utf-8">
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/agency.css}"/>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
 </head>
 <body>
-<div class="container">
-    This is the agency's page. This page is available to only logged in user.
+<div align="center" class="container">
+    <a th:href="@{/logout}" data-tooltip="Logout" data-inverted="" data-position="right center"><img
+            th:src="@{images/logo_centered.png}"
+            alt="Attijari Bank's logo"
+            th:width="160px"/></a>
+    <br><br><br>
+    <strong class="uppercase">Please select the transaction type</strong>
+    <br><br>
+    <button id="deposit-btn" class="spec-btn">Deposit</button>
+    <button id="withdraw-btn" class="spec-btn">Withdraw</button>
+    <button id="transfer-btn" class="spec-btn">Transfer</button>
+    <div id="tx-content-dep">
+        <br><br>
+        Dep Content
+        <br><br>
+    </div>
+    <div id="tx-content-wtd">
+        <br><br>
+        With Content
+        <br></div>
+    <div id="tx-content-trf">
+        <br><br>
+        <form>
+            <div>
+                <span>
+                    <label>From account</label>
+                    <input type="text" placeholder="Payer Account">
+                </span>
+                &nbsp;&nbsp;&nbsp;
+                <span>
+                    <label>To account</label>
+                    <input type="text" placeholder="Receiver Account">
+                </span>
+            </div>
+            <br>
+            <div>
+                <span>
+                    <label class="main-label">Transfer Type</label>
+                    <input type="radio" name="rad_transferType" id="radTransferType_ott"
+                       value="One Time Transfer">
+                    <label for="radTransferType_ott">One-Time Transfer</label>
+                    <input type="radio"
+                           name="rad_transferType"
+                           id="radTransferType_at"
+                           value="Automatic Transfer">
+                    <label for="radTransferType_at">Automatic Transfer</label>
+                </span>
+                <span>
+                    <label class="main-label">Amount</label>
+                    <br>
+                    <input type="number" value="0">
+                </span>
+            </div>
+            <br>
+            <label class="main-label"><span>Memo (OPTIONAL: Maximum of 120 characters)</span></label><textarea
+                maxlength="120"
+                id="memoText"></textarea><span><span>120</span><span> characters remaining.</span></span>
+            <input type="button" class="button simpleButton"
+                   value="Cancel"><input
+                type="submit" class="button CTAButton" value="Next">
+        </form>
+        <br><br>
+    </div>
 </div>
 </body>
+<script>
+    $("#tx-content-dep").hide();
+    $("#tx-content-wtd").hide();
+    $("#tx-content-trf").hide();
+
+    $("#deposit-btn").click(function () {
+        if ($("#tx-content-dep").css("display") === "none") {
+            $("#tx-content-dep").show();
+            $("#tx-content-wtd").hide();
+            $("#tx-content-trf").hide();
+        } else {
+            $("#tx-content-dep").hide();
+            $("#tx-content-wtd").hide();
+            $("#tx-content-trf").hide();
+        }
+    });
+    $("#withdraw-btn").click(function () {
+        if ($("#tx-content-wtd").css("display") === "none") {
+            $("#tx-content-dep").hide();
+            $("#tx-content-wtd").show();
+            $("#tx-content-trf").hide();
+        } else {
+            $("#tx-content-dep").hide();
+            $("#tx-content-wtd").hide();
+            $("#tx-content-trf").hide();
+        }
+    });
+    $("#transfer-btn").click(function () {
+        if ($("#tx-content-trf").css("display") === "none") {
+            $("#tx-content-dep").hide();
+            $("#tx-content-wtd").hide();
+            $("#tx-content-trf").show();
+        } else {
+            $("#tx-content-dep").hide();
+            $("#tx-content-wtd").hide();
+            $("#tx-content-trf").hide();
+        }
+    });
+</script>
 </html>

@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en-Us" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>LDAP Demo</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Dashboard</title>
+    <div th:replace="login :: icon"></div>
+    <meta charset="utf-8">
 </head>
 <body>
 <div class="container">
-    This is the dashboard's page. This page is available to only logged in user.
+    This is the dashboard's page. This page is available to only logged in managers.
 </div>
 </body>
 </html>

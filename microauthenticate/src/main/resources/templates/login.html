@@ -1,4 +1,3 @@
-
 <html lang="en-Us" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -32,5 +31,26 @@
     </div>
 </div><!-- end login -->
 </body>
+<script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
 
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    if (getUrlParameter('error'))
+        UIkit.notification({
+            message: '<center><small>Please verify your credentials!</small></center>',
+            status: 'danger',
+            timeout: 2000
+        });
+</script>
 </html>
