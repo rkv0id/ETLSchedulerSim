@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tnbank</groupId>
-	<artifactId>microcustomer</artifactId>
+	<artifactId>microaccount</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>microcustomer</name>
-	<description>Customer microservice for the scheduler web app done during a summer internship.</description>
+	<name>microaccount</name>
+	<description>Account microservice for the scheduler web app done during a summer internship.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

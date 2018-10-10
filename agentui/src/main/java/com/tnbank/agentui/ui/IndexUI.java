@@ -1,5 +1,6 @@
 package com.tnbank.agentui.ui;
 
+import com.tnbank.agentui.proxies.Services;
 import com.vaadin.annotations.Title;
 import com.vaadin.server.*;
 import com.vaadin.spring.annotation.SpringUI;
@@ -10,15 +11,20 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.net.URI;
+import java.util.HashMap;
 
 
 @SpringUI
 @Title(value = "Agency Simulation")
 public class IndexUI extends UI {
+
     private VerticalLayout root;
-    private @Autowired DepositLayout depositLayout;
-    private @Autowired WithdrawLayout withdrawLayout;
-    private @Autowired TxTransferLayout txTransferLayout;
+    private @Autowired
+    DepositLayout depositLayout;
+    private @Autowired
+    WithdrawLayout withdrawLayout;
+    private @Autowired
+    TxTransferLayout txTransferLayout;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -41,7 +47,11 @@ public class IndexUI extends UI {
 
         ComboBox<String> txCustomerCB = new ComboBox<>("CUSTOMER PRESENT");
         txCustomerCB.setPlaceholder("Search..");
-        txCustomerCB.setItems("Customer1","Customer2","Customer3","Customer4");
+        txCustomerCB.setItems(Services.getCustomerProxy()
+                .getAllCustomers()
+                .getContent()
+                .stream()
+                .map(customerBean -> customerBean.getLastName() + " " + customerBean.getFirstName() + " - " + customerBean.getId()));
         txCustomerCB.setEnabled(false);
 
         final RadioButtonGroup<String> txRadio = new RadioButtonGroup<>("Specify an operation type".toUpperCase());
@@ -52,7 +62,7 @@ public class IndexUI extends UI {
             txTransferLayout.reset();
         });
         Button submitBtn = new Button("Submit Operation");
-        txRadio.setItems("Deposit","Withdraw","2-tier Transfer");
+        txRadio.setItems("Deposit", "Withdraw", "2-tier Transfer");
         txRadio.setStyleName(ValoTheme.OPTIONGROUP_HORIZONTAL);
         txRadio.addValueChangeListener(choiceSelectedEvent -> {
             switch (choiceSelectedEvent.getValue()) {
@@ -60,16 +70,29 @@ public class IndexUI extends UI {
                     txLayout.removeAllComponents();
                     txCustomerCB.setEnabled(true);
                     txLayout.addComponent(depositLayout);
+                    txCustomerCB.addValueChangeListener(event -> {
+                        if (! (event.getValue() == null))
+                            depositLayout.setToAccountCBItems(event.getValue().substring(event.getValue().length() - 8));
+                        else
+                            depositLayout.setToAccountCBItems("");
+                    });
                     break;
                 case "Withdraw":
                     txLayout.removeAllComponents();
                     txCustomerCB.setEnabled(true);
                     txLayout.addComponent(withdrawLayout);
+                    txCustomerCB.addValueChangeListener(event -> {
+                        if (!(event.getValue() == null))
+                            withdrawLayout.setToAccountCBItems(event.getValue().substring(event.getValue().length() - 8));
+                        else
+                            withdrawLayout.setToAccountCBItems("");
+                    });
                     break;
                 case "2-tier Transfer":
                     txLayout.removeAllComponents();
                     txCustomerCB.setEnabled(false);
                     txLayout.addComponent(txTransferLayout);
+                    txTransferLayout.setCBItems();
                     break;
             }
             HorizontalLayout hl = new HorizontalLayout();
@@ -81,7 +104,7 @@ public class IndexUI extends UI {
         txHeaderLayout.addComponent(txRadio);
         txHeaderLayout.addComponent(txCustomerCB);
 
-        root.addComponents(txHeaderLayout,txLayout);
+        root.addComponents(txHeaderLayout, txLayout);
     }
 
     private void addHeader() {

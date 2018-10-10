@@ -1,5 +1,7 @@
 package com.tnbank.agentui.ui;
 
+import com.tnbank.agentui.beans.AccountBean;
+import com.tnbank.agentui.proxies.Services;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.ui.*;
 import org.vaadin.ui.NumberField;
@@ -33,12 +35,18 @@ public class WithdrawLayout extends VerticalLayout {
         hl.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
         fromAccountCB.setPlaceholder("Search..");
-        fromAccountCB.setItems("Account1","Account2","Account3","Account4");
 
         amount.setPlaceholder("Amount..");
 
         hl.addComponent(fromAccountCB);
         hl.addComponent(amount);
         addComponent(hl);
+    }
+
+    public void setToAccountCBItems(String cin) {
+        if (!cin.equals(""))
+            fromAccountCB.setItems(Services.getAccountProxy().getAccountsByCustomer(cin).getContent().stream().map(AccountBean::getId));
+        else
+            fromAccountCB.setItems("");
     }
 }

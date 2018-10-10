@@ -1,5 +1,7 @@
 package com.tnbank.agentui.ui;
 
+import com.tnbank.agentui.beans.AccountBean;
+import com.tnbank.agentui.proxies.Services;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.ui.*;
 import org.vaadin.ui.NumberField;
@@ -45,9 +47,7 @@ public class TxTransferLayout extends VerticalLayout {
         hl3.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
         fromAccountCB.setPlaceholder("Search..");
-        fromAccountCB.setItems("Account1","Account2","Account3","Account4");
         toAccountCB.setPlaceholder("Search..");
-        toAccountCB.setItems("Account1","Account2","Account3","Account4");
         amount.setPlaceholder("Amount..");
 
         hl.addComponents(fromAccountCB,toAccountCB);
@@ -72,5 +72,22 @@ public class TxTransferLayout extends VerticalLayout {
         hl2.addComponents(txRadio,amount);
 
         addComponents(hl,hl2);
+    }
+
+    public void setCBItems() {
+        fromAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId));
+        toAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId));
+        fromAccountCB.addValueChangeListener(event -> {
+            if (event.getValue() != null)
+                toAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId).filter(s -> !s.equals(event.getValue())));
+            else
+                toAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId));
+        });
+        toAccountCB.addValueChangeListener(event -> {
+            if (event.getValue() != null)
+                fromAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId).filter(s -> !s.equals(event.getValue())));
+            else
+                fromAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId));
+        });
     }
 }
