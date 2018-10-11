@@ -1,7 +1,9 @@
 package com.tnbank.agentui.ui;
 
 import com.tnbank.agentui.beans.AccountBean;
+import com.tnbank.agentui.beans.TransactionRequestBean;
 import com.tnbank.agentui.proxies.Services;
+import com.vaadin.shared.Registration;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.ui.*;
 import org.vaadin.ui.NumberField;
@@ -48,5 +50,20 @@ public class WithdrawLayout extends VerticalLayout {
             fromAccountCB.setItems(Services.getAccountProxy().getAccountsByCustomer(cin).getContent().stream().map(AccountBean::getId));
         else
             fromAccountCB.setItems("");
+    }
+
+    public Registration assignSubmitBtn(Button submitBtn, String customerCin) {
+        return submitBtn.addClickListener(event -> {
+            TransactionRequestBean transactionRequestBean = new TransactionRequestBean();
+            transactionRequestBean.setAmount(Long.parseLong(amount.getValue()));
+            transactionRequestBean.setSourceId(fromAccountCB.getValue());
+            transactionRequestBean.setCustomerPresentId(customerCin);
+            transactionRequestBean.setDescription(memo.getValue());
+            transactionRequestBean.setTypeCode("WIT");
+            transactionRequestBean.assignPriority();
+            transactionRequestBean.assignId();
+            Services.getTransactionProxy().saveTransactionRequest(transactionRequestBean);
+            reset();
+        });
     }
 }

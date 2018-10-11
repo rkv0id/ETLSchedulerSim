@@ -2,6 +2,7 @@ package com.tnbank.agentui.proxies;
 
 import com.tnbank.agentui.beans.AccountBean;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,4 +14,6 @@ public interface MicroaccountProxy {
     Resources<AccountBean> getAllAccounts();
     @RequestMapping(method = RequestMethod.GET, path = "/accounts/search/findAllByCinCustomer?cinCustomer={cin}")
     Resources<AccountBean> getAccountsByCustomer(@PathVariable("cin") String cin);
+    @RequestMapping(method = RequestMethod.GET, path = "/accounts/{id}")
+    Resource<AccountBean> getAccountById(@PathVariable("id") String id);
 }

@@ -3,6 +3,7 @@ package com.tnbank.agentui.ui;
 import com.tnbank.agentui.proxies.Services;
 import com.vaadin.annotations.Title;
 import com.vaadin.server.*;
+import com.vaadin.shared.Registration;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
@@ -11,7 +12,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.net.URI;
-import java.util.HashMap;
 
 
 @SpringUI
@@ -25,18 +25,23 @@ public class IndexUI extends UI {
     WithdrawLayout withdrawLayout;
     private @Autowired
     TxTransferLayout txTransferLayout;
+    private @Autowired
+    RequestsLayout requestsLayout;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> ((GrantedAuthority) o).toString().equals("ROLE_MANAGER"))) {
-            setupLayout();
-            addHeader();
+        setupLayout();
+        addHeader();
+        if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_MANAGER"))) {
             root.addComponent(new Label("Hey Manager"));
-        } else if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> ((GrantedAuthority) o).toString().equals("ROLE_AGENT"))) {
-            setupLayout();
-            addHeader();
+        } else if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_AGENT"))) {
             addTxMenu();
         }
+        addFooter();
+    }
+
+    private void addFooter() {
+        root.addComponents();
     }
 
     private void addTxMenu() {
@@ -62,6 +67,7 @@ public class IndexUI extends UI {
             txTransferLayout.reset();
         });
         Button submitBtn = new Button("Submit Operation");
+        final Registration[] submitListener = new Registration[1];
         txRadio.setItems("Deposit", "Withdraw", "2-tier Transfer");
         txRadio.setStyleName(ValoTheme.OPTIONGROUP_HORIZONTAL);
         txRadio.addValueChangeListener(choiceSelectedEvent -> {
@@ -71,10 +77,11 @@ public class IndexUI extends UI {
                     txCustomerCB.setEnabled(true);
                     txLayout.addComponent(depositLayout);
                     txCustomerCB.addValueChangeListener(event -> {
-                        if (! (event.getValue() == null))
+                        if (! (event.getValue() == null)) {
                             depositLayout.setToAccountCBItems(event.getValue().substring(event.getValue().length() - 8));
-                        else
-                            depositLayout.setToAccountCBItems("");
+                            if (!(submitListener[0] == null)) submitListener[0].remove();
+                            submitListener[0] = depositLayout.assignSubmitBtn(submitBtn,event.getValue().substring(event.getValue().length() - 8));
+                        } else depositLayout.setToAccountCBItems("");
                     });
                     break;
                 case "Withdraw":
@@ -82,10 +89,11 @@ public class IndexUI extends UI {
                     txCustomerCB.setEnabled(true);
                     txLayout.addComponent(withdrawLayout);
                     txCustomerCB.addValueChangeListener(event -> {
-                        if (!(event.getValue() == null))
+                        if (!(event.getValue() == null)) {
                             withdrawLayout.setToAccountCBItems(event.getValue().substring(event.getValue().length() - 8));
-                        else
-                            withdrawLayout.setToAccountCBItems("");
+                            if (!(submitListener[0] == null)) submitListener[0].remove();
+                            submitListener[0] = withdrawLayout.assignSubmitBtn(submitBtn,event.getValue().substring(event.getValue().length() - 8));
+                        } else withdrawLayout.setToAccountCBItems("");
                     });
                     break;
                 case "2-tier Transfer":
@@ -93,10 +101,13 @@ public class IndexUI extends UI {
                     txCustomerCB.setEnabled(false);
                     txLayout.addComponent(txTransferLayout);
                     txTransferLayout.setCBItems();
+                    if (!(submitListener[0] == null)) submitListener[0].remove();
+                    submitListener[0] = txTransferLayout.assignSubmitBtn(submitBtn);
                     break;
             }
             HorizontalLayout hl = new HorizontalLayout();
             hl.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+
             hl.addComponents(resetBtn, submitBtn);
             txLayout.addComponent(hl);
         });
@@ -111,7 +122,16 @@ public class IndexUI extends UI {
         URI currentLoc = Page.getCurrent().getLocation();
         Link iconic = new Link(null, new ExternalResource(currentLoc.toString() + "logout"));
         iconic.setIcon(new ClassResource("/static/images/logo_centered.png"));
+        iconic.setDescription("Logout from Session");
         root.addComponents(iconic, new VerticalSplitPanel());
+        Button txBtn = new Button("Trace Transactions");
+        txBtn.addClickListener(event -> {
+            requestsLayout.fillItems();
+            Window requests = new Window("Transfer requests", requestsLayout);
+            requests.setWidth("950px");
+            requests.setHeight("420px");
+            getUI().addWindow(requests);
+        });
     }
 
     private void setupLayout() {

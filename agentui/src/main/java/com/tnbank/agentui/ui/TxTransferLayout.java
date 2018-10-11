@@ -1,10 +1,14 @@
 package com.tnbank.agentui.ui;
 
 import com.tnbank.agentui.beans.AccountBean;
+import com.tnbank.agentui.beans.TransactionRequestBean;
 import com.tnbank.agentui.proxies.Services;
+import com.vaadin.shared.Registration;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.ui.*;
 import org.vaadin.ui.NumberField;
+
+import java.time.LocalDate;
 
 
 @SpringComponent
@@ -17,7 +21,7 @@ public class TxTransferLayout extends VerticalLayout {
     private DateField endDateDF = new DateField("END DATE");
     private ComboBox<String> freqCB = new ComboBox<>("FREQUENCY");
 
-    public void reset() {
+    void reset() {
         memo.clear();
         fromAccountCB.clear();
         toAccountCB.clear();
@@ -74,7 +78,7 @@ public class TxTransferLayout extends VerticalLayout {
         addComponents(hl,hl2);
     }
 
-    public void setCBItems() {
+    void setCBItems() {
         fromAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId));
         toAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId));
         fromAccountCB.addValueChangeListener(event -> {
@@ -88,6 +92,24 @@ public class TxTransferLayout extends VerticalLayout {
                 fromAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId).filter(s -> !s.equals(event.getValue())));
             else
                 fromAccountCB.setItems(Services.getAccountProxy().getAllAccounts().getContent().stream().map(AccountBean::getId));
+        });
+    }
+
+    public Registration assignSubmitBtn(Button submitBtn) {
+        return submitBtn.addClickListener(event -> {
+            TransactionRequestBean transactionRequestBean = new TransactionRequestBean();
+            transactionRequestBean.setAmount(Long.parseLong(amount.getValue()));
+            transactionRequestBean.setSourceId(fromAccountCB.getValue());
+            transactionRequestBean.setBeneficiaryId(toAccountCB.getValue());
+            transactionRequestBean.setDescription(memo.getValue());
+            transactionRequestBean.setTypeCode("T2X");
+            transactionRequestBean.setFrequency(freqCB.getValue());
+            if (freqCB.getValue() != null)
+                transactionRequestBean.setEndTimestamp(LocalDate.of(endDateDF.getValue().getYear(),endDateDF.getValue().getMonth(),endDateDF.getValue().getDayOfMonth()));
+            transactionRequestBean.assignPriority();
+            transactionRequestBean.assignId();
+            Services.getTransactionProxy().saveTransactionRequest(transactionRequestBean);
+            reset();
         });
     }
 }

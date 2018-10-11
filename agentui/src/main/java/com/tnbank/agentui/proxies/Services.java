@@ -18,6 +18,10 @@ public class Services {
         return getApplicationContext().getBean(MicroaccountProxy.class);
     }
 
+    public static MicrotransactionProxy getTransactionProxy() {
+        return getApplicationContext().getBean(MicrotransactionProxy.class);
+    }
+
     public static ApplicationContext getApplicationContext() {
         ServletContext servletContext = SpringVaadinServlet.getCurrent().getServletContext();
         return WebApplicationContextUtils.getWebApplicationContext(servletContext);
