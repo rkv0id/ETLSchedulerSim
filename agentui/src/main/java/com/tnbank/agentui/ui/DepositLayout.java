@@ -37,8 +37,11 @@ public class DepositLayout extends VerticalLayout {
         hl.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
         toAccountCB.setPlaceholder("Search..");
+        toAccountCB.setEmptySelectionAllowed(false);
 
         amount.setPlaceholder("Amount..");
+        amount.setMinValue(1);
+        amount.setNegativeAllowed(false);
 
         hl.addComponent(toAccountCB);
         hl.addComponent(amount);
@@ -46,6 +49,7 @@ public class DepositLayout extends VerticalLayout {
     }
 
     public void setToAccountCBItems(String cin) {
+        toAccountCB.setValue("");
         if (!cin.equals(""))
             toAccountCB.setItems(Services.getAccountProxy().getAccountsByCustomer(cin).getContent().stream().map(AccountBean::getId));
         else

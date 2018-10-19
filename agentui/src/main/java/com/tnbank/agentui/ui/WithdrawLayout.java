@@ -37,8 +37,11 @@ public class WithdrawLayout extends VerticalLayout {
         hl.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
         fromAccountCB.setPlaceholder("Search..");
+        fromAccountCB.setEmptySelectionAllowed(false);
 
         amount.setPlaceholder("Amount..");
+        amount.setNegativeAllowed(false);
+        amount.setMinValue(1);
 
         hl.addComponent(fromAccountCB);
         hl.addComponent(amount);
@@ -46,6 +49,7 @@ public class WithdrawLayout extends VerticalLayout {
     }
 
     public void setToAccountCBItems(String cin) {
+        fromAccountCB.setValue("");
         if (!cin.equals(""))
             fromAccountCB.setItems(Services.getAccountProxy().getAccountsByCustomer(cin).getContent().stream().map(AccountBean::getId));
         else

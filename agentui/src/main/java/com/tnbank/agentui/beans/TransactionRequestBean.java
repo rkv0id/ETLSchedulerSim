@@ -47,22 +47,25 @@ public class TransactionRequestBean {
     }
 
     public void assignPriority() {
-        AccountBean toAccount = Services.getAccountProxy().getAccountById(beneficiaryId).getContent();
-        AccountBean fromAccount = Services.getAccountProxy().getAccountById(sourceId).getContent();
+        AccountBean toAccount,fromAccount;
         switch (typeCode) {
             case "DEP":
+                toAccount = Services.getAccountProxy().getAccountById(beneficiaryId).getContent();
                 priorityAccount(toAccount);
                 priority += 10;
                 if (amount > 3000)
                     priority += 10;
                 break;
             case "WIT":
+                fromAccount = Services.getAccountProxy().getAccountById(sourceId).getContent();
                 priorityAccount(fromAccount);
                 priority -= 10;
                 if (amount > 3000)
                     priority += 5;
                 break;
             case "T2X":
+                toAccount = Services.getAccountProxy().getAccountById(beneficiaryId).getContent();
+                fromAccount = Services.getAccountProxy().getAccountById(sourceId).getContent();
                 priorityAccount(toAccount);
                 priorityAccount(fromAccount);
                 priority += 5;

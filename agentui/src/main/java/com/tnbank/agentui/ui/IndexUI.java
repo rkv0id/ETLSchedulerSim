@@ -7,8 +7,6 @@ import com.vaadin.shared.Registration;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.net.URI;
@@ -19,14 +17,14 @@ import java.net.URI;
 public class IndexUI extends UI {
 
     private VerticalLayout root;
-    private @Autowired
-    DepositLayout depositLayout;
-    private @Autowired
-    WithdrawLayout withdrawLayout;
-    private @Autowired
-    TxTransferLayout txTransferLayout;
-    private @Autowired
-    RequestsLayout requestsLayout;
+    private
+    DepositLayout depositLayout = new DepositLayout();
+    private
+    WithdrawLayout withdrawLayout = new WithdrawLayout();
+    private
+    TxTransferLayout txTransferLayout = new TxTransferLayout();
+    private
+    RequestsLayout requestsLayout = new RequestsLayout();
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -35,6 +33,15 @@ public class IndexUI extends UI {
         if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_MANAGER"))) {
             root.addComponent(new Label("Hey Manager"));
         } else if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_AGENT"))) {
+            Button txBtn = new Button("Trace Transactions");
+            txBtn.addClickListener(event -> {
+                requestsLayout.fillItems();
+                Window requests = new Window("Transfer requests", requestsLayout);
+                requests.setWidth("950px");
+                requests.setHeight("420px");
+                getUI().addWindow(requests);
+            });
+            root.addComponents(txBtn, new VerticalSplitPanel());
             addTxMenu();
         }
         addFooter();
@@ -77,10 +84,10 @@ public class IndexUI extends UI {
                     txCustomerCB.setEnabled(true);
                     txLayout.addComponent(depositLayout);
                     txCustomerCB.addValueChangeListener(event -> {
-                        if (! (event.getValue() == null)) {
+                        if (!(event.getValue() == null)) {
                             depositLayout.setToAccountCBItems(event.getValue().substring(event.getValue().length() - 8));
                             if (!(submitListener[0] == null)) submitListener[0].remove();
-                            submitListener[0] = depositLayout.assignSubmitBtn(submitBtn,event.getValue().substring(event.getValue().length() - 8));
+                            submitListener[0] = depositLayout.assignSubmitBtn(submitBtn, event.getValue().substring(event.getValue().length() - 8));
                         } else depositLayout.setToAccountCBItems("");
                     });
                     break;
@@ -92,7 +99,7 @@ public class IndexUI extends UI {
                         if (!(event.getValue() == null)) {
                             withdrawLayout.setToAccountCBItems(event.getValue().substring(event.getValue().length() - 8));
                             if (!(submitListener[0] == null)) submitListener[0].remove();
-                            submitListener[0] = withdrawLayout.assignSubmitBtn(submitBtn,event.getValue().substring(event.getValue().length() - 8));
+                            submitListener[0] = withdrawLayout.assignSubmitBtn(submitBtn, event.getValue().substring(event.getValue().length() - 8));
                         } else withdrawLayout.setToAccountCBItems("");
                     });
                     break;
@@ -123,15 +130,8 @@ public class IndexUI extends UI {
         Link iconic = new Link(null, new ExternalResource(currentLoc.toString() + "logout"));
         iconic.setIcon(new ClassResource("/static/images/logo_centered.png"));
         iconic.setDescription("Logout from Session");
+
         root.addComponents(iconic, new VerticalSplitPanel());
-        Button txBtn = new Button("Trace Transactions");
-        txBtn.addClickListener(event -> {
-            requestsLayout.fillItems();
-            Window requests = new Window("Transfer requests", requestsLayout);
-            requests.setWidth("950px");
-            requests.setHeight("420px");
-            getUI().addWindow(requests);
-        });
     }
 
     private void setupLayout() {

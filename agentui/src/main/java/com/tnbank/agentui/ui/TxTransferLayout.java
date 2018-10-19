@@ -51,8 +51,12 @@ public class TxTransferLayout extends VerticalLayout {
         hl3.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
         fromAccountCB.setPlaceholder("Search..");
+        fromAccountCB.setEmptySelectionAllowed(false);
         toAccountCB.setPlaceholder("Search..");
+        toAccountCB.setEmptySelectionAllowed(false);
         amount.setPlaceholder("Amount..");
+        amount.setMinValue(1);
+        amount.setNegativeAllowed(false);
 
         hl.addComponents(fromAccountCB,toAccountCB);
 
