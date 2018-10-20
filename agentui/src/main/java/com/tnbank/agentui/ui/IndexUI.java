@@ -33,22 +33,21 @@ public class IndexUI extends UI {
         if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_MANAGER"))) {
             root.addComponent(new Label("Hey Manager"));
         } else if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_AGENT"))) {
-            Button txBtn = new Button("Trace Transactions");
-            txBtn.addClickListener(event -> {
-                requestsLayout.fillItems();
-                Window requests = new Window("Transfer requests", requestsLayout);
-                requests.setWidth("950px");
-                requests.setHeight("420px");
-                getUI().addWindow(requests);
-            });
-            root.addComponents(txBtn, new VerticalSplitPanel());
             addTxMenu();
+            addFooter();
         }
-        addFooter();
     }
 
     private void addFooter() {
-        root.addComponents();
+        Button txBtn = new Button("Trace Transactions");
+        txBtn.addClickListener(event -> {
+            requestsLayout.fillItems();
+            Window requests = new Window("Transfer requests", requestsLayout);
+            requests.setWidth("950px");
+            requests.setHeight("420px");
+            getUI().addWindow(requests);
+        });
+        root.addComponents(new VerticalSplitPanel(), txBtn);
     }
 
     private void addTxMenu() {

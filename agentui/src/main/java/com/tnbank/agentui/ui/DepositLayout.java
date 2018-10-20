@@ -14,7 +14,7 @@ public class DepositLayout extends VerticalLayout {
     private ComboBox<String> toAccountCB = new ComboBox<>("TO ACCOUNT");
     private NumberField amount = new NumberField("AMOUNT (IN DT)");
 
-    public void reset() {
+    void reset() {
         memo.clear();
         toAccountCB.clear();
         amount.clear();
@@ -48,7 +48,7 @@ public class DepositLayout extends VerticalLayout {
         addComponent(hl);
     }
 
-    public void setToAccountCBItems(String cin) {
+    void setToAccountCBItems(String cin) {
         toAccountCB.setValue("");
         if (!cin.equals(""))
             toAccountCB.setItems(Services.getAccountProxy().getAccountsByCustomer(cin).getContent().stream().map(AccountBean::getId));
@@ -56,13 +56,14 @@ public class DepositLayout extends VerticalLayout {
             toAccountCB.setItems("");
     }
 
-    public Registration assignSubmitBtn(Button submitBtn, String customerCin) {
+    Registration assignSubmitBtn(Button submitBtn, String customerCin) {
         return submitBtn.addClickListener(event -> {
             TransactionRequestBean transactionRequestBean = new TransactionRequestBean();
             transactionRequestBean.setAmount(Long.parseLong(amount.getValue()));
             transactionRequestBean.setBeneficiaryId(toAccountCB.getValue());
             transactionRequestBean.setCustomerPresentId(customerCin);
-            transactionRequestBean.setDescription(memo.getValue());
+            if (!memo.getValue().equals(""))
+                transactionRequestBean.setDescription(memo.getValue());
             transactionRequestBean.setTypeCode("DEP");
             transactionRequestBean.assignPriority();
             transactionRequestBean.assignId();

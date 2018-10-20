@@ -99,17 +99,19 @@ public class TxTransferLayout extends VerticalLayout {
         });
     }
 
-    public Registration assignSubmitBtn(Button submitBtn) {
+    Registration assignSubmitBtn(Button submitBtn) {
         return submitBtn.addClickListener(event -> {
             TransactionRequestBean transactionRequestBean = new TransactionRequestBean();
             transactionRequestBean.setAmount(Long.parseLong(amount.getValue()));
             transactionRequestBean.setSourceId(fromAccountCB.getValue());
             transactionRequestBean.setBeneficiaryId(toAccountCB.getValue());
-            transactionRequestBean.setDescription(memo.getValue());
+            if (!memo.getValue().equals(""))
+                transactionRequestBean.setDescription(memo.getValue());
             transactionRequestBean.setTypeCode("T2X");
-            transactionRequestBean.setFrequency(freqCB.getValue());
-            if (freqCB.getValue() != null)
-                transactionRequestBean.setEndTimestamp(LocalDate.of(endDateDF.getValue().getYear(),endDateDF.getValue().getMonth(),endDateDF.getValue().getDayOfMonth()));
+            if (freqCB.getValue() != null) {
+                transactionRequestBean.setFrequency(freqCB.getValue());
+                transactionRequestBean.setEndTimestamp(LocalDate.of(endDateDF.getValue().getYear(), endDateDF.getValue().getMonth(), endDateDF.getValue().getDayOfMonth()));
+            }
             transactionRequestBean.assignPriority();
             transactionRequestBean.assignId();
             Services.getTransactionProxy().saveTransactionRequest(transactionRequestBean);

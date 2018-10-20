@@ -14,7 +14,7 @@ public class WithdrawLayout extends VerticalLayout {
     private ComboBox<String> fromAccountCB = new ComboBox<>("FROM ACCOUNT");
     private NumberField amount = new NumberField("AMOUNT (IN DT)");
 
-    public void reset() {
+    void reset() {
         memo.clear();
         fromAccountCB.clear();
         amount.clear();
@@ -48,7 +48,7 @@ public class WithdrawLayout extends VerticalLayout {
         addComponent(hl);
     }
 
-    public void setToAccountCBItems(String cin) {
+    void setToAccountCBItems(String cin) {
         fromAccountCB.setValue("");
         if (!cin.equals(""))
             fromAccountCB.setItems(Services.getAccountProxy().getAccountsByCustomer(cin).getContent().stream().map(AccountBean::getId));
@@ -56,13 +56,14 @@ public class WithdrawLayout extends VerticalLayout {
             fromAccountCB.setItems("");
     }
 
-    public Registration assignSubmitBtn(Button submitBtn, String customerCin) {
+    Registration assignSubmitBtn(Button submitBtn, String customerCin) {
         return submitBtn.addClickListener(event -> {
             TransactionRequestBean transactionRequestBean = new TransactionRequestBean();
             transactionRequestBean.setAmount(Long.parseLong(amount.getValue()));
             transactionRequestBean.setSourceId(fromAccountCB.getValue());
             transactionRequestBean.setCustomerPresentId(customerCin);
-            transactionRequestBean.setDescription(memo.getValue());
+            if (!memo.getValue().equals(""))
+                transactionRequestBean.setDescription(memo.getValue());
             transactionRequestBean.setTypeCode("WIT");
             transactionRequestBean.assignPriority();
             transactionRequestBean.assignId();

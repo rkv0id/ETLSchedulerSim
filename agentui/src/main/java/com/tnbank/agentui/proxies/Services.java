@@ -22,7 +22,7 @@ public class Services {
         return getApplicationContext().getBean(MicrotransactionProxy.class);
     }
 
-    public static ApplicationContext getApplicationContext() {
+    private static ApplicationContext getApplicationContext() {
         ServletContext servletContext = SpringVaadinServlet.getCurrent().getServletContext();
         return WebApplicationContextUtils.getWebApplicationContext(servletContext);
     }

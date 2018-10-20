@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class TransactionRequestBean {
 
     private String id;
-    private String customerPresentId;
+    private String customerPresentId = "T2XNotNeeded";
     private String beneficiaryId = "NONE";
     private String sourceId = "NONE";
     private String description = "no specific description given";
@@ -23,6 +23,7 @@ public class TransactionRequestBean {
     private LocalDate endTimestamp = LocalDate.now(Clock.systemUTC());
     private int priority = 100;
     private boolean validated = false;
+    private String status = "processing";
 
     private void priorityAccount(AccountBean toAccount) {
         if (toAccount.getStatusCode().equals("OPN"))

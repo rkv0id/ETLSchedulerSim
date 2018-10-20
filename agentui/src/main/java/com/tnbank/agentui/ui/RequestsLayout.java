@@ -5,6 +5,8 @@ import com.tnbank.agentui.proxies.Services;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.ui.Grid;
 
+import java.util.Comparator;
+
 @SpringComponent
 public class RequestsLayout extends Grid<TransactionRequestBean> {
     public RequestsLayout() {
@@ -12,8 +14,8 @@ public class RequestsLayout extends Grid<TransactionRequestBean> {
         setSizeFull();
     }
 
-    public void fillItems() {
-        setItems(Services.getTransactionProxy().getAllTransactionRequests().getContent());
-        setColumns("id", "validated", "customerPresentId", "amount", "beneficiaryId", "sourceId");
+    void fillItems() {
+        setItems(Services.getTransactionProxy().getAllTransactionRequests().getContent().stream().sorted(Comparator.comparing(TransactionRequestBean::getTimestamp).reversed()));
+        setColumns("id", "status", "customerPresentId", "amount", "beneficiaryId", "sourceId");
     }
 }
