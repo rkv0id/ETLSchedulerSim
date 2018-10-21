@@ -46,7 +46,7 @@ public class ScheduledMeasures {
         transactionDayMeasure = new TransactionDayMeasure();
     }
 
-    @Scheduled(cron = "0 * * * * *") // Every 2 Hours
+    @Scheduled(cron = "0 0 */2 * * *") // Every 2 Hours
     public void accountTypeMeasure() {
         accountTypeMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         accountTypeMeasure.setTodayCount(dimAccountRepository.findAllByBeginTimestampAfter(LocalDateTime.of(LocalDate.now(Clock.systemUTC()), LocalTime.MIN)).size());
@@ -58,7 +58,7 @@ public class ScheduledMeasures {
     }
 
     @Scheduled(cron = "*/17 * * * * *") // Every 17 seconds
-    public void requestTxMeasure() {
+    public void instantMeasures() {
         requestDayMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         requestDayMeasure.setTodayReqCount(
                 dimTransactionRequestRepository.findAllByTimestampAfter(LocalDateTime.of(LocalDate.now(Clock.systemUTC()),LocalTime.MIN)).size()
@@ -93,7 +93,7 @@ public class ScheduledMeasures {
         transactionDayMeasureRepository.save(transactionDayMeasure);
     }
 
-    @Scheduled(cron = "0 * * * * *") // Every Day
+    @Scheduled(cron = "0 0 0 * * *") // Every Day
     public void dailyMeasure() {
         accountTypeMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         accountTypeMeasure.setAllCount(dimAccountRepository.count());
