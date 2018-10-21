@@ -17,37 +17,53 @@ import java.net.URI;
 public class IndexUI extends UI {
 
     private VerticalLayout root;
-    private
-    DepositLayout depositLayout = new DepositLayout();
-    private
-    WithdrawLayout withdrawLayout = new WithdrawLayout();
-    private
-    TxTransferLayout txTransferLayout = new TxTransferLayout();
-    private
-    RequestsLayout requestsLayout = new RequestsLayout();
+    private DepositLayout depositLayout = new DepositLayout();
+    private WithdrawLayout withdrawLayout = new WithdrawLayout();
+    private TxTransferLayout txTransferLayout = new TxTransferLayout();
+    private RequestsLayout requestsLayout = new RequestsLayout();
+    private RequestsAdminLayout requestsAdminLayout = new RequestsAdminLayout();
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         setupLayout();
         addHeader();
         if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_MANAGER"))) {
-            root.addComponent(new Label("Hey Manager"));
+            addDash();
         } else if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_AGENT"))) {
             addTxMenu();
-            addFooter();
         }
+        addFooter();
+    }
+
+    private void addDash() {
+        HorizontalLayout rootContent = new HorizontalLayout();
+        rootContent.setSizeFull();
+
+        Panel leftPanel = new Panel("Hey Manager");
+        Panel rightPanel = new Panel(requestsAdminLayout);
+
+        requestsAdminLayout.fillItems();
+
+        requestsAdminLayout.addSelectionListener(event -> {
+            if (event.getFirstSelectedItem().isPresent()) {
+                RequestLayout requestContent = new RequestLayout(event.getFirstSelectedItem().get(), requestsAdminLayout);
+                Window request = new Window("Transaction n°" + event.getFirstSelectedItem().get().getId(), requestContent);
+                request.setWidth("1000px");
+                request.setHeight("565px");
+                getUI().addWindow(request);
+            }
+        });
+        Button refreshBtn = new Button("Refresh Content");
+        refreshBtn.addClickListener(event -> {
+            requestsAdminLayout.fillItems();
+        });
+
+        rootContent.addComponents(leftPanel, rightPanel);
+        root.addComponents(refreshBtn, new VerticalSplitPanel(), rootContent);
     }
 
     private void addFooter() {
-        Button txBtn = new Button("Trace Transactions");
-        txBtn.addClickListener(event -> {
-            requestsLayout.fillItems();
-            Window requests = new Window("Transfer requests", requestsLayout);
-            requests.setWidth("950px");
-            requests.setHeight("420px");
-            getUI().addWindow(requests);
-        });
-        root.addComponents(new VerticalSplitPanel(), txBtn);
+
     }
 
     private void addTxMenu() {
@@ -111,10 +127,19 @@ public class IndexUI extends UI {
                     submitListener[0] = txTransferLayout.assignSubmitBtn(submitBtn);
                     break;
             }
+            Button txBtn = new Button("Trace Transactions");
+            txBtn.addClickListener(event -> {
+                requestsLayout.fillItems();
+                Window requests = new Window("Transfer requests", requestsLayout);
+                requests.setWidth("950px");
+                requests.setHeight("420px");
+                getUI().addWindow(requests);
+            });
+
             HorizontalLayout hl = new HorizontalLayout();
             hl.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
-            hl.addComponents(resetBtn, submitBtn);
+            hl.addComponents(txBtn, resetBtn, submitBtn);
             txLayout.addComponent(hl);
         });
 
@@ -130,7 +155,7 @@ public class IndexUI extends UI {
         iconic.setIcon(new ClassResource("/static/images/logo_centered.png"));
         iconic.setDescription("Logout from Session");
 
-        root.addComponents(iconic, new VerticalSplitPanel());
+        root.addComponents(iconic, new VerticalSplitPanel(), new VerticalSplitPanel());
     }
 
     private void setupLayout() {

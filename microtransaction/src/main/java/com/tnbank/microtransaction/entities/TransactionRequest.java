@@ -34,7 +34,7 @@ public class TransactionRequest {
 
     public void reassign(MicroaccountProxy microaccountProxy) {
         AccountBean toAccount, fromAccount;
-        if (Duration.between(timestamp,LocalDateTime.now(Clock.systemUTC())).getSeconds() > 17) {
+        if (Duration.between(timestamp,LocalDateTime.now(Clock.systemUTC())).getSeconds() > 17 && priority < 1500) {
             switch(typeCode) {
                 case "WIT":
                     fromAccount = microaccountProxy.getAccountById(sourceId);
