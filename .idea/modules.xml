@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/agentui/agentui.iml" filepath="$PROJECT_DIR$/agentui/agentui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server-repo/config-server-repo.iml" filepath="$PROJECT_DIR$/config-server-repo/config-server-repo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microaccount/microaccount.iml" filepath="$PROJECT_DIR$/microaccount/microaccount.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microcustomer/microcustomer.iml" filepath="$PROJECT_DIR$/microcustomer/microcustomer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microetl/microetl.iml" filepath="$PROJECT_DIR$/microetl/microetl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microtransaction/microtransaction.iml" filepath="$PROJECT_DIR$/microtransaction/microtransaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zipkin-server/zipkin-server.iml" filepath="$PROJECT_DIR$/zipkin-server/zipkin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul-server/zuul-server.iml" filepath="$PROJECT_DIR$/zuul-server/zuul-server.iml" />
+    </modules>
+  </component>
+</project>

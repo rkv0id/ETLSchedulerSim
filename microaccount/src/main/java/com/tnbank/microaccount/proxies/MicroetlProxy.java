@@ -1,15 +1,16 @@
 package com.tnbank.microaccount.proxies;
 
 import com.tnbank.microaccount.beans.DimAccountBean;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Service
-@FeignClient(name = "microetl", url = "localhost:9004")
+@FeignClient(name = "zuul-server")
+@RibbonClient(name = "microetl")
 public interface MicroetlProxy {
-    @RequestMapping(method = RequestMethod.POST, path = "/dimAccounts")
+    @PostMapping(value = "/microetl/dimAccounts")
     void saveDimAccount(@RequestBody DimAccountBean dimAccountBean);
 }

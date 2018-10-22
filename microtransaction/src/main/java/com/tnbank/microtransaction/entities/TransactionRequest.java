@@ -43,6 +43,7 @@ public class TransactionRequest {
                 case "DEP":
                     toAccount = microaccountProxy.getAccountById(beneficiaryId);
                     switchDEPWIT(toAccount);
+                    priority += 10;
                     break;
                 case "T2X":
                     toAccount = microaccountProxy.getAccountById(beneficiaryId);

@@ -41,14 +41,51 @@ public class ScheduledMeasures {
         this.dimAccountRepository = dimAccountRepository;
         this.dimTransactionRepository = dimTransactionRepository;
         this.dimTransactionRequestRepository = dimTransactionRequestRepository;
-        accountTypeMeasure = new AccountTypeMeasure();
-        requestDayMeasure = new RequestDayMeasure();
-        transactionDayMeasure = new TransactionDayMeasure();
+
+        accountTypeMeasure = accountTypeMeasureRepository.findByDay(LocalDate.of(
+                LocalDate.now(Clock.systemUTC()).getYear(),
+                LocalDate.now(Clock.systemUTC()).getMonth(),
+                LocalDate.now(Clock.systemUTC()).getDayOfMonth()-1
+        ));
+        accountTypeMeasure.setDay(LocalDate.now(Clock.systemUTC()));
+        accountTypeMeasure.setAllCount(accountTypeMeasure.getAllCount() + accountTypeMeasure.getTodayCount());
+        accountTypeMeasure.setAllNormCount(accountTypeMeasure.getAllNormCount() + accountTypeMeasure.getTodayNormCount());
+        accountTypeMeasure.setAllNentCount(accountTypeMeasure.getAllNentCount() + accountTypeMeasure.getTodayNentCount());
+        accountTypeMeasure.setAllPremCount(accountTypeMeasure.getAllPremCount() + accountTypeMeasure.getTodayPremCount());
+        accountTypeMeasure.setAllPentCount(accountTypeMeasure.getAllPentCount() + accountTypeMeasure.getTodayPentCount());
+        accountTypeMeasure.setTodayCount(0);
+        accountTypeMeasure.setTodayNormCount(0);
+        accountTypeMeasure.setTodayNentCount(0);
+        accountTypeMeasure.setTodayPentCount(0);
+        accountTypeMeasure.setTodayPremCount(0);
+
+        requestDayMeasure = requestDayMeasureRepository.findByDay(LocalDate.of(
+                LocalDate.now(Clock.systemUTC()).getYear(),
+                LocalDate.now(Clock.systemUTC()).getMonth(),
+                LocalDate.now(Clock.systemUTC()).getDayOfMonth()-1
+        ));
+        requestDayMeasure.setDay(LocalDate.now(Clock.systemUTC()));
+        requestDayMeasure.setAllReqCount(requestDayMeasure.getAllReqCount() + requestDayMeasure.getTodayReqCount());
+        requestDayMeasure.setAllReqAmount(requestDayMeasure.getAllReqAmount() + requestDayMeasure.getTodayReqAmount());
+        requestDayMeasure.setTodayReqAmount(0);
+        requestDayMeasure.setTodayReqCount(0);
+
+        transactionDayMeasure = transactionDayMeasureRepository.findByDay(LocalDate.of(
+                LocalDate.now(Clock.systemUTC()).getYear(),
+                LocalDate.now(Clock.systemUTC()).getMonth(),
+                LocalDate.now(Clock.systemUTC()).getDayOfMonth()-1
+        ));
+        transactionDayMeasure.setDay(LocalDate.now(Clock.systemUTC()));
+        transactionDayMeasure.setAllNet(transactionDayMeasure.getAllNet() + transactionDayMeasure.getTodayNet());
+        transactionDayMeasure.setAllCount(transactionDayMeasure.getAllCount() + transactionDayMeasure.getTodayCount());
+        transactionDayMeasure.setAllAmount(transactionDayMeasure.getAllAmount() + transactionDayMeasure.getTodayAmount());
+        transactionDayMeasure.setTodayNet(0);
+        transactionDayMeasure.setTodayCount(0);
+        transactionDayMeasure.setTodayAmount(0);
     }
 
-    @Scheduled(cron = "0 0 */2 * * *") // Every 2 Hours
+    @Scheduled(cron = "0 * * * * *") // Every 2 Hours
     public void accountTypeMeasure() {
-        accountTypeMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         accountTypeMeasure.setTodayCount(dimAccountRepository.findAllByBeginTimestampAfter(LocalDateTime.of(LocalDate.now(Clock.systemUTC()), LocalTime.MIN)).size());
         accountTypeMeasure.setTodayNormCount(dimAccountRepository.findAllByBeginTimestampAfterAndTypeCode(LocalDateTime.of(LocalDate.now(Clock.systemUTC()), LocalTime.MIN),"NORM").size());
         accountTypeMeasure.setTodayNentCount(dimAccountRepository.findAllByBeginTimestampAfterAndTypeCode(LocalDateTime.of(LocalDate.now(Clock.systemUTC()), LocalTime.MIN),"NENT").size());
@@ -59,7 +96,6 @@ public class ScheduledMeasures {
 
     @Scheduled(cron = "*/17 * * * * *") // Every 17 seconds
     public void instantMeasures() {
-        requestDayMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         requestDayMeasure.setTodayReqCount(
                 dimTransactionRequestRepository.findAllByTimestampAfter(LocalDateTime.of(LocalDate.now(Clock.systemUTC()),LocalTime.MIN)).size()
         );
@@ -71,7 +107,6 @@ public class ScheduledMeasures {
         );
         requestDayMeasureRepository.save(requestDayMeasure);
 
-        transactionDayMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         transactionDayMeasure.setTodayNet(
                 dimTransactionRepository.findAllByTypeCodeAndTimestampAfter("DEP", LocalDateTime.of(LocalDate.now(Clock.systemUTC()), LocalTime.MIN))
                         .stream()
@@ -93,9 +128,8 @@ public class ScheduledMeasures {
         transactionDayMeasureRepository.save(transactionDayMeasure);
     }
 
-    @Scheduled(cron = "0 0 0 * * *") // Every Day
+    @Scheduled(cron = "0 * * * * *") // Every Day
     public void dailyMeasure() {
-        accountTypeMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         accountTypeMeasure.setAllCount(dimAccountRepository.count());
         accountTypeMeasure.setAllNormCount(dimAccountRepository.findAllByTypeCode("NORM").size());
         accountTypeMeasure.setAllNentCount(dimAccountRepository.findAllByTypeCode("NENT").size());
@@ -103,7 +137,6 @@ public class ScheduledMeasures {
         accountTypeMeasure.setAllPentCount(dimAccountRepository.findAllByTypeCode("PENT").size());
         accountTypeMeasureRepository.save(accountTypeMeasure);
 
-        transactionDayMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         transactionDayMeasure.setAllCount(dimTransactionRepository.count());
         transactionDayMeasure.setAllAmount(
                 ((List<DimTransaction>)dimTransactionRepository.findAll())
@@ -122,7 +155,6 @@ public class ScheduledMeasures {
         );
         transactionDayMeasureRepository.save(transactionDayMeasure);
 
-        requestDayMeasure.setDay(LocalDate.now(Clock.systemUTC()));
         requestDayMeasure.setAllReqCount(dimTransactionRequestRepository.count());
         requestDayMeasure.setAllReqAmount(((List<DimTransactionRequest>)dimTransactionRequestRepository.findAll())
                 .stream()

@@ -22,6 +22,10 @@ public class Services {
         return getApplicationContext().getBean(MicrotransactionProxy.class);
     }
 
+    public static MicroetlProxy getEtlProxy() {
+        return getApplicationContext().getBean(MicroetlProxy.class);
+    }
+
     private static ApplicationContext getApplicationContext() {
         ServletContext servletContext = SpringVaadinServlet.getCurrent().getServletContext();
         return WebApplicationContextUtils.getWebApplicationContext(servletContext);

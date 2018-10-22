@@ -22,6 +22,7 @@ public class IndexUI extends UI {
     private TxTransferLayout txTransferLayout = new TxTransferLayout();
     private RequestsLayout requestsLayout = new RequestsLayout();
     private RequestsAdminLayout requestsAdminLayout = new RequestsAdminLayout();
+    private GraphSheet graphSheet;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -36,10 +37,11 @@ public class IndexUI extends UI {
     }
 
     private void addDash() {
+        graphSheet = new GraphSheet();
         HorizontalLayout rootContent = new HorizontalLayout();
         rootContent.setSizeFull();
 
-        Panel leftPanel = new Panel("Hey Manager");
+        Panel leftPanel = new Panel(graphSheet);
         Panel rightPanel = new Panel(requestsAdminLayout);
 
         requestsAdminLayout.fillItems();
@@ -56,6 +58,7 @@ public class IndexUI extends UI {
         Button refreshBtn = new Button("Refresh Content");
         refreshBtn.addClickListener(event -> {
             requestsAdminLayout.fillItems();
+            graphSheet.reset();
         });
 
         rootContent.addComponents(leftPanel, rightPanel);
