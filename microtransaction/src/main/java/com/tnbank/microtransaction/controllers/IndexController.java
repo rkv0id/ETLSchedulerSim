@@ -10,6 +10,8 @@ import com.tnbank.microtransaction.proxies.MicroetlProxy;
 import com.tnbank.microtransaction.repositories.TransactionRepository;
 import com.tnbank.microtransaction.repositories.TransactionRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @RepositoryRestController
-public class IndexController {
+public class IndexController implements HealthIndicator {
     private TransactionRequestRepository transactionRequestRepository;
     private TransactionRepository transactionRepository;
     private MicroaccountProxy microaccountProxy;
@@ -212,5 +214,11 @@ public class IndexController {
             dimTransactionRequestBean.setTypeCode(transactionRequest.getTypeCode());
             microetlProxy.saveDimTransactionRequest(dimTransactionRequestBean);
         }
+    }
+
+    @Override
+    public Health health() {
+        boolean transactionBoolean = transactionRepository.findAll().iterator().hasNext();
+        return transactionBoolean ? Health.up().build() : Health.down().build();
     }
 }

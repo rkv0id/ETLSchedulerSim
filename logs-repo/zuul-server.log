@@ -1095,3 +1095,724 @@ java.lang.IllegalStateException: Shutdown in progress
 
 2018-10-23 04:56:05.304  INFO [zuul-server,,,] 18937 --- [Thread-23] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
 2018-10-23 04:56:05.307  WARN [zuul-server,,,] 18937 --- [Thread-23] .s.c.a.CommonAnnotationBeanPostProcessor : Invocation of destroy method failed on bean with name 'scopedTarget.eurekaClient': org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'eurekaInstanceConfigBean': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+2018-10-23 13:36:45.854  INFO [zuul-server,,,] 28269 --- [main] c.t.zuulserver.ZuulServerApplication     : No active profile set, falling back to default profiles: default
+2018-10-23 13:36:45.867  INFO [zuul-server,,,] 28269 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be: startup date [Tue Oct 23 13:36:45 CET 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@6a78afa0
+2018-10-23 13:36:46.576  INFO [zuul-server,,,] 28269 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'counterFactory' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.netflix.zuul.ZuulServerAutoConfiguration$ZuulMetricsConfiguration; factoryMethodName=counterFactory; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulServerAutoConfiguration$ZuulMetricsConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.netflix.zuul.ZuulServerAutoConfiguration$ZuulCounterFactoryConfiguration; factoryMethodName=counterFactory; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulServerAutoConfiguration$ZuulCounterFactoryConfiguration.class]]
+2018-10-23 13:36:46.877  INFO [zuul-server,,,] 28269 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=11714d8e-e953-3c43-8695-c277f0afb76b
+2018-10-23 13:36:46.896  INFO [zuul-server,,,] 28269 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-23 13:36:47.138  INFO [zuul-server,,,] 28269 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$95652b1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-23 13:36:47.643  INFO [zuul-server,,,] 28269 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9005 (http)
+2018-10-23 13:36:47.665  INFO [zuul-server,,,] 28269 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-10-23 13:36:47.665  INFO [zuul-server,,,] 28269 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.34
+2018-10-23 13:36:47.670  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2018-10-23 13:36:47.755  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-10-23 13:36:47.756  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1888 ms
+2018-10-23 13:36:47.977  WARN [zuul-server,,,] 28269 --- [localhost-startStop-1] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-10-23 13:36:47.978  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-10-23 13:36:47.986  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5947698a
+2018-10-23 13:36:49.302  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-10-23 13:36:49.303  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2018-10-23 13:36:49.303  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'tracingFilter' to: [/*]
+2018-10-23 13:36:49.303  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'exceptionLoggingFilter' to: [/*]
+2018-10-23 13:36:49.303  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-10-23 13:36:49.303  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-10-23 13:36:49.303  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-10-23 13:36:49.304  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpTraceFilter' to: [/*]
+2018-10-23 13:36:49.304  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-10-23 13:36:49.305  INFO [zuul-server,,,] 28269 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet zuulServlet mapped to [/zuul/*]
+2018-10-23 13:36:49.419  WARN [zuul-server,,,] 28269 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-10-23 13:36:49.419  INFO [zuul-server,,,] 28269 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-10-23 13:36:49.614  INFO [zuul-server,,,] 28269 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-23 13:36:49.890  INFO [zuul-server,,,] 28269 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be: startup date [Tue Oct 23 13:36:45 CET 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@6a78afa0
+2018-10-23 13:36:49.957  INFO [zuul-server,,,] 28269 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-10-23 13:36:49.958  INFO [zuul-server,,,] 28269 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-10-23 13:36:50.006  INFO [zuul-server,,,] 28269 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-23 13:36:50.006  INFO [zuul-server,,,] 28269 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-23 13:36:50.852  INFO [zuul-server,,,] 28269 --- [main] o.s.c.n.zuul.ZuulFilterInitializer       : Starting filter initializer
+2018-10-23 13:36:50.968  INFO [zuul-server,,,] 28269 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2018-10-23 13:36:50.980  INFO [zuul-server,,,] 28269 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-10-23 13:36:50.981  INFO [zuul-server,,,] 28269 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2018-10-23 13:36:50.982  INFO [zuul-server,,,] 28269 --- [main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-10-23 13:36:51.046  INFO [zuul-server,,,] 28269 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-10-23 13:36:51.055  INFO [zuul-server,,,] 28269 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-10-23 13:36:51.056  INFO [zuul-server,,,] 28269 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-10-23 13:36:51.058  INFO [zuul-server,,,] 28269 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-10-23 13:36:51.063  INFO [zuul-server,,,] 28269 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-10-23 13:36:51.072  INFO [zuul-server,,,] 28269 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-10-23 13:36:51.081  INFO [zuul-server,,,] 28269 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=258d79be,type=ConfigurationPropertiesRebinder]
+2018-10-23 13:36:51.097  INFO [zuul-server,,,] 28269 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-10-23 13:36:51.102  INFO [zuul-server,,,] 28269 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2018-10-23 13:36:51.133  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2018-10-23 13:36:51.168  INFO [zuul-server,,,] 28269 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2018-10-23 13:36:51.168  INFO [zuul-server,,,] 28269 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2018-10-23 13:36:51.255  INFO [zuul-server,,,] 28269 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2018-10-23 13:36:51.255  INFO [zuul-server,,,] 28269 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2018-10-23 13:36:51.407  INFO [zuul-server,,,] 28269 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-10-23 13:36:51.419  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-10-23 13:36:51.420  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-10-23 13:36:51.420  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-10-23 13:36:51.420  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-10-23 13:36:51.420  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-10-23 13:36:51.420  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2018-10-23 13:36:51.420  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-10-23 13:36:51.566  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-10-23 13:36:51.567  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2018-10-23 13:36:51.571  INFO [zuul-server,,,] 28269 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2018-10-23 13:36:51.575  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1540298211574 with initial instances count: 0
+2018-10-23 13:36:51.587  INFO [zuul-server,,,] 28269 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application zuul-server with eureka with status UP
+2018-10-23 13:36:51.587  INFO [zuul-server,,,] 28269 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1540298211587, current=UP, previous=STARTING]
+2018-10-23 13:36:51.589  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ZUUL-SERVER/196.224.26.146:zuul-server:9005: registering service...
+2018-10-23 13:36:51.647  INFO [zuul-server,,,] 28269 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9005 (http) with context path ''
+2018-10-23 13:36:51.649  INFO [zuul-server,,,] 28269 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9005
+2018-10-23 13:36:51.653  INFO [zuul-server,,,] 28269 --- [main] c.t.zuulserver.ZuulServerApplication     : Started ZuulServerApplication in 9.184 seconds (JVM running for 9.986)
+2018-10-23 13:36:51.657  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ZUUL-SERVER/196.224.26.146:zuul-server:9005 - registration status: 204
+2018-10-23 13:36:52.094  INFO [zuul-server,,,] 28269 --- [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-10-23 13:36:52.094  INFO [zuul-server,,,] 28269 --- [RMI TCP Connection(6)-127.0.0.1] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9101
+2018-10-23 13:36:52.094  INFO [zuul-server,,,] 28269 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-10-23 13:36:52.153  INFO [zuul-server,,,] 28269 --- [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 59 ms
+2018-10-23 13:36:53.740  INFO [zuul-server,,,] 28269 --- [RMI TCP Connection(6)-127.0.0.1] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=zuul-server, profiles=[default], label=null, version=3fe5ddcf217af5ce8f18cea818d32c068e9beb38, state=null
+2018-10-23 13:37:02.366  WARN [zuul-server,,,] 28269 --- [http-nio-9005-exec-1] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-10-23 13:37:21.568  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-10-23 13:37:21.568  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-10-23 13:37:21.568  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-10-23 13:37:21.568  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-10-23 13:37:21.568  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-10-23 13:37:21.568  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2018-10-23 13:37:21.568  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-10-23 13:37:21.601  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-10-23 13:37:41.027  WARN [zuul-server,,,] 28269 --- [http-nio-9005-exec-5] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-10-23 13:38:01.027  INFO [zuul-server,,,] 28269 --- [http-nio-9005-exec-6] o.s.c.n.zuul.web.ZuulHandlerMapping      : Mapped URL path [/microservice-springadmin/**] onto handler of type [class org.springframework.cloud.netflix.zuul.web.ZuulController]
+2018-10-23 13:38:34.200  INFO [zuul-server,,,] 28269 --- [http-nio-9005-exec-9] o.s.c.n.zuul.web.ZuulHandlerMapping      : Mapped URL path [/microcustomer/**] onto handler of type [class org.springframework.cloud.netflix.zuul.web.ZuulController]
+2018-10-23 13:38:34.200  INFO [zuul-server,,,] 28269 --- [http-nio-9005-exec-9] o.s.c.n.zuul.web.ZuulHandlerMapping      : Mapped URL path [/microaccount/**] onto handler of type [class org.springframework.cloud.netflix.zuul.web.ZuulController]
+2018-10-23 13:39:00.602  INFO [zuul-server,,,] 28269 --- [http-nio-9005-exec-2] o.s.c.n.zuul.web.ZuulHandlerMapping      : Mapped URL path [/microtransaction/**] onto handler of type [class org.springframework.cloud.netflix.zuul.web.ZuulController]
+2018-10-23 13:39:00.602  INFO [zuul-server,,,] 28269 --- [http-nio-9005-exec-2] o.s.c.n.zuul.web.ZuulHandlerMapping      : Mapped URL path [/microetl/**] onto handler of type [class org.springframework.cloud.netflix.zuul.web.ZuulController]
+2018-10-23 13:39:00.602  INFO [zuul-server,,,] 28269 --- [http-nio-9005-exec-2] o.s.c.n.zuul.web.ZuulHandlerMapping      : Mapped URL path [/agentui/**] onto handler of type [class org.springframework.cloud.netflix.zuul.web.ZuulController]
+2018-10-23 13:39:00.614  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/accountTypeMeasures 
+2018-10-23 13:39:00.627  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-microetl: startup date [Tue Oct 23 13:39:00 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:39:00.680  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-23 13:39:00.820  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] c.netflix.config.ChainedDynamicProperty  : Flipping property: microetl.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:00.835  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook installed for: NFLoadBalancer-PingTimer-microetl
+2018-10-23 13:39:00.854  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] c.netflix.loadbalancer.BaseLoadBalancer  : Client: microetl instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microetl,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2018-10-23 13:39:00.859  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] c.n.l.DynamicServerListLoadBalancer      : Using serverListUpdater PollingServerListUpdater
+2018-10-23 13:39:00.878  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] c.netflix.config.ChainedDynamicProperty  : Flipping property: microetl.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:00.880  INFO [zuul-server,6d62dc57ba57424b,778c85b421c47ee3,false] 28269 --- [http-nio-9005-exec-2] c.n.l.DynamicServerListLoadBalancer      : DynamicServerListLoadBalancer for client microetl initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microetl,current list of Servers=[196.224.26.146:9004],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:196.224.26.146:9004;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 01:00:00 CET 1970;	First connection made: Thu Jan 01 01:00:00 CET 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@541b5168
+2018-10-23 13:39:01.208  INFO [zuul-server,6d62dc57ba57424b,f34df60b9c5e4715,false] 28269 --- [http-nio-9005-exec-4] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/requestDayMeasures 
+2018-10-23 13:39:01.261  INFO [zuul-server,6d62dc57ba57424b,321cf03000f0e88b,false] 28269 --- [http-nio-9005-exec-5] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/transactionDayMeasures 
+2018-10-23 13:39:01.377  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microtransaction/transactionRequests 
+2018-10-23 13:39:01.380  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-microtransaction: startup date [Tue Oct 23 13:39:01 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:39:01.420  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-23 13:39:01.447  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] c.netflix.config.ChainedDynamicProperty  : Flipping property: microtransaction.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:01.450  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook installed for: NFLoadBalancer-PingTimer-microtransaction
+2018-10-23 13:39:01.451  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] c.netflix.loadbalancer.BaseLoadBalancer  : Client: microtransaction instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microtransaction,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2018-10-23 13:39:01.453  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] c.n.l.DynamicServerListLoadBalancer      : Using serverListUpdater PollingServerListUpdater
+2018-10-23 13:39:01.455  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] c.netflix.config.ChainedDynamicProperty  : Flipping property: microtransaction.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:01.456  INFO [zuul-server,6d62dc57ba57424b,8ab23c214cdb9739,false] 28269 --- [http-nio-9005-exec-6] c.n.l.DynamicServerListLoadBalancer      : DynamicServerListLoadBalancer for client microtransaction initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microtransaction,current list of Servers=[196.224.26.146:9003],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:196.224.26.146:9003;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 01:00:00 CET 1970;	First connection made: Thu Jan 01 01:00:00 CET 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@7271dc67
+2018-10-23 13:39:01.862  INFO [zuul-server,,,] 28269 --- [PollingServerListUpdater-0] c.netflix.config.ChainedDynamicProperty  : Flipping property: microetl.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:02.455  INFO [zuul-server,,,] 28269 --- [PollingServerListUpdater-1] c.netflix.config.ChainedDynamicProperty  : Flipping property: microtransaction.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:08.427  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microcustomer/customers 
+2018-10-23 13:39:08.431  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-microcustomer: startup date [Tue Oct 23 13:39:08 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:39:08.493  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-23 13:39:08.522  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] c.netflix.config.ChainedDynamicProperty  : Flipping property: microcustomer.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:08.525  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook installed for: NFLoadBalancer-PingTimer-microcustomer
+2018-10-23 13:39:08.527  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] c.netflix.loadbalancer.BaseLoadBalancer  : Client: microcustomer instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microcustomer,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2018-10-23 13:39:08.530  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] c.n.l.DynamicServerListLoadBalancer      : Using serverListUpdater PollingServerListUpdater
+2018-10-23 13:39:08.533  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] c.netflix.config.ChainedDynamicProperty  : Flipping property: microcustomer.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:08.534  INFO [zuul-server,f47bd128096bcb63,e24b0f8bc6cb09f0,false] 28269 --- [http-nio-9005-exec-8] c.n.l.DynamicServerListLoadBalancer      : DynamicServerListLoadBalancer for client microcustomer initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microcustomer,current list of Servers=[196.224.26.146:9001],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:196.224.26.146:9001;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 01:00:00 CET 1970;	First connection made: Thu Jan 01 01:00:00 CET 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@3d5f1010
+2018-10-23 13:39:09.532  INFO [zuul-server,,,] 28269 --- [PollingServerListUpdater-0] c.netflix.config.ChainedDynamicProperty  : Flipping property: microcustomer.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:14.598  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/search/findAllByCinCustomer 
+2018-10-23 13:39:14.609  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-microaccount: startup date [Tue Oct 23 13:39:14 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:39:14.673  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-23 13:39:14.702  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] c.netflix.config.ChainedDynamicProperty  : Flipping property: microaccount.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:14.705  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook installed for: NFLoadBalancer-PingTimer-microaccount
+2018-10-23 13:39:14.706  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] c.netflix.loadbalancer.BaseLoadBalancer  : Client: microaccount instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microaccount,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2018-10-23 13:39:14.708  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] c.n.l.DynamicServerListLoadBalancer      : Using serverListUpdater PollingServerListUpdater
+2018-10-23 13:39:14.712  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] c.netflix.config.ChainedDynamicProperty  : Flipping property: microaccount.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:14.714  INFO [zuul-server,c6cc0f6208469ef0,22418c9d1a4db113,false] 28269 --- [http-nio-9005-exec-9] c.n.l.DynamicServerListLoadBalancer      : DynamicServerListLoadBalancer for client microaccount initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=microaccount,current list of Servers=[196.224.26.146:9002],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:196.224.26.146:9002;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 01:00:00 CET 1970;	First connection made: Thu Jan 01 01:00:00 CET 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@5763f5a9
+2018-10-23 13:39:15.711  INFO [zuul-server,,,] 28269 --- [PollingServerListUpdater-1] c.netflix.config.ChainedDynamicProperty  : Flipping property: microaccount.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:39:31.450  INFO [zuul-server,100ca15ce1022e49,f0c71f6854ca15eb,false] 28269 --- [http-nio-9005-exec-2] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:39:31.565  INFO [zuul-server,100ca15ce1022e49,41d110aa47799564,false] 28269 --- [http-nio-9005-exec-4] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microtransaction/transactionRequests 
+2018-10-23 13:39:31.925  INFO [zuul-server,100ca15ce1022e49,5c0c9836ce6b7dbe,false] 28269 --- [http-nio-9005-exec-5] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/dimTransactionRequests 
+2018-10-23 13:39:33.440  INFO [zuul-server,5ea093116648cff2,4fecd03e9c98ad1f,false] 28269 --- [http-nio-9005-exec-6] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microtransaction/transactionRequests 
+2018-10-23 13:39:59.167  INFO [zuul-server,1e62914cdf126741,3544a4df727b9a0b,false] 28269 --- [http-nio-9005-exec-9] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:40:00.790  INFO [zuul-server,e93de94f16627ff5,643f999aa8aa624a,false] 28269 --- [http-nio-9005-exec-1] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/accountTypeMeasures 
+2018-10-23 13:40:00.818  INFO [zuul-server,e93de94f16627ff5,438b4f98792e2c42,false] 28269 --- [http-nio-9005-exec-3] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/requestDayMeasures 
+2018-10-23 13:40:00.842  INFO [zuul-server,e93de94f16627ff5,6033f9e799a1844c,false] 28269 --- [http-nio-9005-exec-2] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/transactionDayMeasures 
+2018-10-23 13:40:00.862  INFO [zuul-server,e93de94f16627ff5,daba5814c50f4cd7,false] 28269 --- [http-nio-9005-exec-5] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microtransaction/transactionRequests 
+2018-10-23 13:40:02.429  INFO [zuul-server,237ef27fc989db18,c59acdde69a99b6c,false] 28269 --- [http-nio-9005-exec-6] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microtransaction/transactionRequests 
+2018-10-23 13:40:03.557  INFO [zuul-server,d40d28d72fde5cf9,1bccb0e7cb75bd11,false] 28269 --- [http-nio-9005-exec-7] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:40:03.598  INFO [zuul-server,d40d28d72fde5cf9,ab6e5300a87f5b17,false] 28269 --- [http-nio-9005-exec-8] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microcustomer/customers/13236860 
+2018-10-23 13:40:03.682  INFO [zuul-server,d40d28d72fde5cf9,e8fa21198c8b9d7d,false] 28269 --- [http-nio-9005-exec-10] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microcustomer/customers/13236860 
+2018-10-23 13:40:07.839  INFO [zuul-server,f57688cbda25da03,43c0f50d9d17fa1e,false] 28269 --- [http-nio-9005-exec-1] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:40:07.875  INFO [zuul-server,f57688cbda25da03,5406495e186369ff,false] 28269 --- [http-nio-9005-exec-3] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microcustomer/customers/13236860 
+2018-10-23 13:40:07.912  INFO [zuul-server,f57688cbda25da03,800e54f029f2cfce,false] 28269 --- [http-nio-9005-exec-2] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microcustomer/customers/13236860 
+2018-10-23 13:40:16.267  INFO [zuul-server,0409cab60db81ba1,ceb9a60e70e203f9,false] 28269 --- [http-nio-9005-exec-4] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:40:33.333  INFO [zuul-server,2cb4ae5f630ae049,958e7f54fe95eccb,false] 28269 --- [http-nio-9005-exec-8] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:40:50.421  INFO [zuul-server,25a127af563683cb,98c1e88f9850a1b7,true] 28269 --- [http-nio-9005-exec-1] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:40:51.270  INFO [zuul-server,,,] 28269 --- [AsyncReporter{org.springframework.cloud.sleuth.zipkin2.sender.RestTemplateSender@289372f2}] s.c.a.AnnotationConfigApplicationContext : Refreshing SpringClientFactory-localhost: startup date [Tue Oct 23 13:40:51 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:40:51.320  INFO [zuul-server,,,] 28269 --- [AsyncReporter{org.springframework.cloud.sleuth.zipkin2.sender.RestTemplateSender@289372f2}] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-23 13:40:51.344  INFO [zuul-server,,,] 28269 --- [AsyncReporter{org.springframework.cloud.sleuth.zipkin2.sender.RestTemplateSender@289372f2}] c.netflix.config.ChainedDynamicProperty  : Flipping property: localhost.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+2018-10-23 13:40:51.347  INFO [zuul-server,,,] 28269 --- [AsyncReporter{org.springframework.cloud.sleuth.zipkin2.sender.RestTemplateSender@289372f2}] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook installed for: NFLoadBalancer-PingTimer-localhost
+2018-10-23 13:40:51.351  INFO [zuul-server,,,] 28269 --- [AsyncReporter{org.springframework.cloud.sleuth.zipkin2.sender.RestTemplateSender@289372f2}] c.netflix.loadbalancer.BaseLoadBalancer  : Client: localhost instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=localhost,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2018-10-23 13:40:51.353  INFO [zuul-server,,,] 28269 --- [AsyncReporter{org.springframework.cloud.sleuth.zipkin2.sender.RestTemplateSender@289372f2}] c.n.l.DynamicServerListLoadBalancer      : Using serverListUpdater PollingServerListUpdater
+2018-10-23 13:40:51.354  INFO [zuul-server,,,] 28269 --- [AsyncReporter{org.springframework.cloud.sleuth.zipkin2.sender.RestTemplateSender@289372f2}] c.n.l.DynamicServerListLoadBalancer      : DynamicServerListLoadBalancer for client localhost initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=localhost,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@6d1fb1f4
+2018-10-23 13:41:07.515  INFO [zuul-server,78bad71dc52be80c,f84e4c1c85603e5c,false] 28269 --- [http-nio-9005-exec-5] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:41:24.594  INFO [zuul-server,d66b3aacfa339008,2977a9590927e01c,false] 28269 --- [http-nio-9005-exec-7] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:41:41.670  INFO [zuul-server,fdc6bbccb3301809,86cc02f1d5fde7b5,false] 28269 --- [http-nio-9005-exec-9] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:41:51.422  INFO [zuul-server,,,] 28269 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-10-23 13:41:58.745  INFO [zuul-server,a26cee647b4dde48,e66e06e9f1934690,false] 28269 --- [http-nio-9005-exec-3] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:42:01.045  INFO [zuul-server,42ab2800d430635d,42ab2800d430635d,false] 28269 --- [http-nio-9005-exec-2] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9101
+2018-10-23 13:42:02.397  INFO [zuul-server,42ab2800d430635d,42ab2800d430635d,false] 28269 --- [http-nio-9005-exec-2] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=zuul-server, profiles=[default], label=null, version=3fe5ddcf217af5ce8f18cea818d32c068e9beb38, state=null
+2018-10-23 13:42:15.814  INFO [zuul-server,e024d41e439e7a35,e94c5ead653f48f2,false] 28269 --- [http-nio-9005-exec-4] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:42:21.744  INFO [zuul-server,9d5290a03526eae1,6d838d10f5a035fc,false] 28269 --- [http-nio-9005-exec-7] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/accountTypeMeasures 
+2018-10-23 13:42:21.778  INFO [zuul-server,9d5290a03526eae1,b69a7ebbcaf4a9e4,false] 28269 --- [http-nio-9005-exec-8] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/requestDayMeasures 
+2018-10-23 13:42:21.798  INFO [zuul-server,9d5290a03526eae1,20699167b629bb7f,false] 28269 --- [http-nio-9005-exec-10] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/transactionDayMeasures 
+2018-10-23 13:42:21.823  INFO [zuul-server,9d5290a03526eae1,bc32a82507ece6ee,false] 28269 --- [http-nio-9005-exec-9] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microtransaction/transactionRequests 
+2018-10-23 13:42:30.381  INFO [zuul-server,d3c4e05fb5ad0e23,2e6e05e556a9beb0,false] 28269 --- [http-nio-9005-exec-2] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/accountTypeMeasures 
+2018-10-23 13:42:30.412  INFO [zuul-server,d3c4e05fb5ad0e23,288fa987154f8cb6,false] 28269 --- [http-nio-9005-exec-5] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/requestDayMeasures 
+2018-10-23 13:42:30.436  INFO [zuul-server,d3c4e05fb5ad0e23,3180cb79948fde6c,false] 28269 --- [http-nio-9005-exec-4] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microetl/transactionDayMeasures 
+2018-10-23 13:42:30.454  INFO [zuul-server,d3c4e05fb5ad0e23,f94fa4e19f861ec7,false] 28269 --- [http-nio-9005-exec-6] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microtransaction/transactionRequests 
+2018-10-23 13:42:32.886  INFO [zuul-server,1fcbdbda5bafab1d,37c0b724ade00543,false] 28269 --- [http-nio-9005-exec-7] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:42:49.937  INFO [zuul-server,3ae5b33b5571db51,bb590f7cd612ee97,false] 28269 --- [http-nio-9005-exec-1] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:43:07.011  INFO [zuul-server,2436d9aadfdb2685,85a94dbbcc9c1a73,false] 28269 --- [http-nio-9005-exec-5] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:43:24.082  INFO [zuul-server,f65da5673357a539,9fe8eb10ad4c9c89,false] 28269 --- [http-nio-9005-exec-7] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:43:41.151  INFO [zuul-server,4337774819794f02,de697f47fda285a4,false] 28269 --- [http-nio-9005-exec-9] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:43:58.218  INFO [zuul-server,cf946af3deb5d6eb,98e9f084663e5802,false] 28269 --- [http-nio-9005-exec-3] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:44:15.287  INFO [zuul-server,aa787a6cfc3a57f9,037c1c88b74fa523,false] 28269 --- [http-nio-9005-exec-4] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:44:32.359  INFO [zuul-server,a067fa7f1ae8bc47,62c84097bd819fb4,false] 28269 --- [http-nio-9005-exec-8] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:44:49.420  INFO [zuul-server,6f3065687f1a9188,a53048ccb416b09d,false] 28269 --- [http-nio-9005-exec-1] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:45:06.489  INFO [zuul-server,a6c1d3b862de34da,75740c58b1408367,true] 28269 --- [http-nio-9005-exec-5] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:45:23.563  INFO [zuul-server,987d5518af66904a,f3c2d4c4ae17a88c,false] 28269 --- [http-nio-9005-exec-7] com.tnbank.zuulserver.filters.LogFilter  : **** Requête interceptée ! L'URL est : http://196.224.26.146:9005/microaccount/accounts/36860RIB13236860 
+2018-10-23 13:51:17.362  INFO [zuul-server,,,] 28269 --- [Thread-28] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be: startup date [Tue Oct 23 13:36:45 CET 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@6a78afa0
+2018-10-23 13:51:17.362  INFO [zuul-server,,,] 28269 --- [Thread-40] c.n.l.PollingServerListUpdater           : Shutting down the Executor Pool for PollingServerListUpdater
+2018-10-23 13:51:17.363  INFO [zuul-server,,,] 28269 --- [Thread-28] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application zuul-server with eureka with status DOWN
+2018-10-23 13:51:17.363  WARN [zuul-server,,,] 28269 --- [Thread-28] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1540299077363, current=DOWN, previous=UP]
+2018-10-23 13:51:17.364  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ZUUL-SERVER/196.224.26.146:zuul-server:9005: registering service...
+2018-10-23 13:51:17.366  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] o.a.http.impl.client.DefaultHttpClient   : I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:9102: Connection reset
+2018-10-23 13:51:17.366  INFO [zuul-server,,,] 28269 --- [Thread-28] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2018-10-23 13:51:17.366  INFO [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] o.a.http.impl.client.DefaultHttpClient   : Retrying request to {}->http://localhost:9102
+2018-10-23 13:51:17.367  INFO [zuul-server,,,] 28269 --- [Thread-28] o.s.c.n.zuul.ZuulFilterInitializer       : Stopping filter initializer
+2018-10-23 13:51:17.369  INFO [zuul-server,,,] 28269 --- [Thread-28] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-10-23 13:51:17.369  INFO [zuul-server,,,] 28269 --- [Thread-28] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-10-23 13:51:17.373 ERROR [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error
+
+com.sun.jersey.api.client.ClientHandlerException: org.apache.http.client.ClientProtocolException
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.sun.jersey.api.client.Client.handle(Client.java:652) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource$Builder.post(WebResource.java:570) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.register(AbstractJerseyEurekaHttpClient.java:56) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:89) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) [eureka-client-1.9.3.jar:1.9.3]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_181]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+Caused by: org.apache.http.client.ClientProtocolException: null
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:839) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.6.jar:4.5.6]
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	... 29 common frames omitted
+Caused by: org.apache.http.client.NonRepeatableRequestException: Cannot retry request with a non-repeatable request entity.  The cause lists the reason the original request failed.
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:658) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:486) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835) ~[httpclient-4.5.6.jar:4.5.6]
+	... 32 common frames omitted
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:115) ~[na:1.8.0_181]
+	at java.net.SocketOutputStream.write(SocketOutputStream.java:155) ~[na:1.8.0_181]
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:160) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:168) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.io.ChunkedOutputStream.flush(ChunkedOutputStream.java:192) ~[httpcore-4.4.10.jar:4.4.10]
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1100) ~[jackson-core-2.9.7.jar:2.9.7]
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValue(ObjectMapper.java:2657) ~[jackson-databind-2.9.7.jar:2.9.7]
+	at com.fasterxml.jackson.core.base.GeneratorBase.writeObject(GeneratorBase.java:381) ~[jackson-core-2.9.7.jar:2.9.7]
+	at com.fasterxml.jackson.core.JsonGenerator.writeObjectField(JsonGenerator.java:1726) ~[jackson-core-2.9.7.jar:2.9.7]
+	at com.netflix.discovery.converters.EurekaJacksonCodec$InstanceInfoSerializer.serialize(EurekaJacksonCodec.java:379) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.converters.EurekaJacksonCodec$InstanceInfoSerializer.serialize(EurekaJacksonCodec.java:327) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:468) ~[jackson-databind-2.9.7.jar:2.9.7]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:397) ~[jackson-databind-2.9.7.jar:2.9.7]
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1392) ~[jackson-databind-2.9.7.jar:2.9.7]
+	at com.fasterxml.jackson.databind.ObjectWriter._configAndWriteValue(ObjectWriter.java:1120) ~[jackson-databind-2.9.7.jar:2.9.7]
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:950) ~[jackson-databind-2.9.7.jar:2.9.7]
+	at com.netflix.discovery.converters.EurekaJacksonCodec.writeTo(EurekaJacksonCodec.java:221) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.converters.wrappers.CodecWrappers$LegacyJacksonJson.encode(CodecWrappers.java:304) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.provider.DiscoveryJerseyProvider.writeTo(DiscoveryJerseyProvider.java:135) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.sun.jersey.api.client.RequestWriter$RequestEntityWriterImpl.writeRequestEntity(RequestWriter.java:231) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler$2.writeTo(ApacheHttpClient4Handler.java:289) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	at org.apache.http.entity.HttpEntityWrapper.writeTo(HttpEntityWrapper.java:94) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.client.EntityEnclosingRequestWrapper$EntityWrapper.writeTo(EntityEnclosingRequestWrapper.java:110) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.entity.EntitySerializer.serialize(EntitySerializer.java:118) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.AbstractHttpClientConnection.sendRequestEntity(AbstractHttpClientConnection.java:266) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.sendRequestEntity(AbstractClientConnAdapter.java:239) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:238) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:684) ~[httpclient-4.5.6.jar:4.5.6]
+	... 34 common frames omitted
+	Suppressed: java.net.SocketException: Broken pipe (Write failed)
+		at java.net.SocketOutputStream.socketWrite0(Native Method) ~[na:1.8.0_181]
+		at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:111) ~[na:1.8.0_181]
+		at java.net.SocketOutputStream.write(SocketOutputStream.java:155) ~[na:1.8.0_181]
+		at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:160) ~[httpcore-4.4.10.jar:4.4.10]
+		at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:168) ~[httpcore-4.4.10.jar:4.4.10]
+		at org.apache.http.impl.io.ChunkedOutputStream.close(ChunkedOutputStream.java:203) ~[httpcore-4.4.10.jar:4.4.10]
+		at com.fasterxml.jackson.core.json.UTF8JsonGenerator.close(UTF8JsonGenerator.java:1138) ~[jackson-core-2.9.7.jar:2.9.7]
+		at com.fasterxml.jackson.databind.util.ClassUtil.closeOnFailAndThrowAsIOE(ClassUtil.java:488) ~[jackson-databind-2.9.7.jar:2.9.7]
+		at com.fasterxml.jackson.databind.ObjectWriter._configAndWriteValue(ObjectWriter.java:1122) ~[jackson-databind-2.9.7.jar:2.9.7]
+		... 48 common frames omitted
+
+2018-10-23 13:51:17.373  WARN [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: org.apache.http.client.ClientProtocolException
+2018-10-23 13:51:17.399 ERROR [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error
+
+com.sun.jersey.api.client.ClientHandlerException: java.net.SocketException: Connection reset
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.sun.jersey.api.client.Client.handle(Client.java:652) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource$Builder.post(WebResource.java:570) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.register(AbstractJerseyEurekaHttpClient.java:56) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) [eureka-client-1.9.3.jar:1.9.3]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_181]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210) ~[na:1.8.0_181]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_181]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:161) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:82) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:278) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:286) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:257) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.receiveResponseHeader(AbstractClientConnAdapter.java:230) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.10.jar:4.4.10]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:684) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:486) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118) ~[httpclient-4.5.6.jar:4.5.6]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.6.jar:4.5.6]
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	... 30 common frames omitted
+
+2018-10-23 13:51:17.400  WARN [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: java.net.SocketException: Connection reset
+2018-10-23 13:51:17.400  WARN [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ZUUL-SERVER/196.224.26.146:zuul-server:9005 - registration failed Cannot execute request on any known server
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) [eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) [eureka-client-1.9.3.jar:1.9.3]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_181]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+
+2018-10-23 13:51:17.401  WARN [zuul-server,,,] 28269 --- [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:829) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) ~[eureka-client-1.9.3.jar:1.9.3]
+	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) [eureka-client-1.9.3.jar:1.9.3]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [na:1.8.0_181]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [na:1.8.0_181]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+
+2018-10-23 13:51:18.097  INFO [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Closing SpringClientFactory-localhost: startup date [Tue Oct 23 13:40:51 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:51:18.106  WARN [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Exception thrown from ApplicationListener handling ContextClosedEvent
+
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'eurekaAutoServiceRegistration': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:208) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1087) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.getTargetBean(ApplicationListenerMethodAdapter.java:288) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:258) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:180) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:142) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:406) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:998) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.118  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook removed for: NFLoadBalancer-PingTimer-localhost
+2018-10-23 13:51:18.120  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Exception caught (might be ok if at shutdown)
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82) ~[na:1.8.0_181]
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239) ~[na:1.8.0_181]
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70) ~[netflix-commons-util-0.3.0.jar:0.3.0]
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:613) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:864) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:337) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:271) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.129  INFO [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Closing SpringClientFactory-microetl: startup date [Tue Oct 23 13:39:00 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:51:18.131  WARN [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Exception thrown from ApplicationListener handling ContextClosedEvent
+
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'eurekaAutoServiceRegistration': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:208) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1087) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.getTargetBean(ApplicationListenerMethodAdapter.java:288) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:258) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:180) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:142) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:406) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:998) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.143  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook removed for: NFLoadBalancer-PingTimer-microetl
+2018-10-23 13:51:18.145  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Exception caught (might be ok if at shutdown)
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82) ~[na:1.8.0_181]
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239) ~[na:1.8.0_181]
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70) ~[netflix-commons-util-0.3.0.jar:0.3.0]
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:613) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:864) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:337) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:271) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.150  INFO [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Closing SpringClientFactory-microtransaction: startup date [Tue Oct 23 13:39:01 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:51:18.152  WARN [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Exception thrown from ApplicationListener handling ContextClosedEvent
+
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'eurekaAutoServiceRegistration': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:208) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1087) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.getTargetBean(ApplicationListenerMethodAdapter.java:288) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:258) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:180) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:142) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:406) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:998) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.163  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook removed for: NFLoadBalancer-PingTimer-microtransaction
+2018-10-23 13:51:18.165  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Exception caught (might be ok if at shutdown)
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82) ~[na:1.8.0_181]
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239) ~[na:1.8.0_181]
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70) ~[netflix-commons-util-0.3.0.jar:0.3.0]
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:613) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:864) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:337) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:271) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.178  INFO [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Closing SpringClientFactory-microcustomer: startup date [Tue Oct 23 13:39:08 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:51:18.182  WARN [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Exception thrown from ApplicationListener handling ContextClosedEvent
+
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'eurekaAutoServiceRegistration': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:208) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1087) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.getTargetBean(ApplicationListenerMethodAdapter.java:288) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:258) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:180) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:142) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:406) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:998) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.195  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook removed for: NFLoadBalancer-PingTimer-microcustomer
+2018-10-23 13:51:18.197  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Exception caught (might be ok if at shutdown)
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82) ~[na:1.8.0_181]
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239) ~[na:1.8.0_181]
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70) ~[netflix-commons-util-0.3.0.jar:0.3.0]
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:613) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:864) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:337) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:271) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.204  INFO [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Closing SpringClientFactory-microaccount: startup date [Tue Oct 23 13:39:14 CET 2018]; parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@258d79be
+2018-10-23 13:51:18.209  WARN [zuul-server,,,] 28269 --- [Thread-28] s.c.a.AnnotationConfigApplicationContext : Exception thrown from ApplicationListener handling ContextClosedEvent
+
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'eurekaAutoServiceRegistration': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:208) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1087) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.getTargetBean(ApplicationListenerMethodAdapter.java:288) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:258) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:180) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:142) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:400) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:406) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:354) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:998) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.217  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Shutdown hook removed for: NFLoadBalancer-PingTimer-microaccount
+2018-10-23 13:51:18.218  INFO [zuul-server,,,] 28269 --- [Thread-28] c.n.u.concurrent.ShutdownEnabledTimer    : Exception caught (might be ok if at shutdown)
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82) ~[na:1.8.0_181]
+	at java.lang.Runtime.removeShutdownHook(Runtime.java:239) ~[na:1.8.0_181]
+	at com.netflix.util.concurrent.ShutdownEnabledTimer.cancel(ShutdownEnabledTimer.java:70) ~[netflix-commons-util-0.3.0.jar:0.3.0]
+	at com.netflix.loadbalancer.BaseLoadBalancer.cancelPingTask(BaseLoadBalancer.java:613) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.BaseLoadBalancer.shutdown(BaseLoadBalancer.java:864) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at com.netflix.loadbalancer.DynamicServerListLoadBalancer.shutdown(DynamicServerListLoadBalancer.java:285) [ribbon-loadbalancer-2.2.5.jar:2.2.5]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.invokeCustomDestroyMethod(DisposableBeanAdapter.java:337) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:271) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:965) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.cloud.context.named.NamedContextFactory.destroy(NamedContextFactory.java:76) [spring-cloud-context-2.0.1.RELEASE.jar:2.0.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:256) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:571) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:543) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:954) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:504) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:961) [spring-beans-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1039) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1015) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:935) [spring-context-5.0.10.RELEASE.jar:5.0.10.RELEASE]
+
+2018-10-23 13:51:18.233  INFO [zuul-server,,,] 28269 --- [Thread-28] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2018-10-23 13:51:18.240  WARN [zuul-server,,,] 28269 --- [Thread-28] .s.c.a.CommonAnnotationBeanPostProcessor : Invocation of destroy method failed on bean with name 'scopedTarget.eurekaClient': org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'eurekaInstanceConfigBean': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)

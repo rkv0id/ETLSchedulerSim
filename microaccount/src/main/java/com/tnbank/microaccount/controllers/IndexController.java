@@ -7,6 +7,8 @@ import com.tnbank.microaccount.repositories.AccountRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.Clock;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RepositoryRestController
-public class IndexController {
+public class IndexController implements HealthIndicator {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private MicroetlProxy microetlProxy;
     private AccountRepository accountRepository;
@@ -43,5 +46,11 @@ public class IndexController {
         dimAccountBean.setTypeCode(account.getTypeCode());
         microetlProxy.saveDimAccount(dimAccountBean);
         logger.info("New account saved @ " + LocalDateTime.now(Clock.systemUTC()));
+    }
+
+    @Override
+    public Health health() {
+        boolean accountBoolean = accountRepository.findAll().iterator().hasNext();
+        return accountBoolean ? Health.up().build() : Health.down().build();
     }
 }

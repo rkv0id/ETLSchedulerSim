@@ -13,6 +13,7 @@
         <module name="microcustomer" />
         <module name="microetl" />
         <module name="microtransaction" />
+        <module name="springadmin" />
         <module name="zuul-server" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
       <module name="microcustomer" target="1.8" />
       <module name="microetl" target="1.8" />
       <module name="microtransaction" target="1.8" />
+      <module name="springadmin" target="1.8" />
       <module name="zuul-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
