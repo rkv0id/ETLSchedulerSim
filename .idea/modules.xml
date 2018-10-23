@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server-repo/config-server-repo.iml" filepath="$PROJECT_DIR$/config-server-repo/config-server-repo.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logs-repo/logs-repo.iml" filepath="$PROJECT_DIR$/logs-repo/logs-repo.iml" />
       <module fileurl="file://$PROJECT_DIR$/microaccount/microaccount.iml" filepath="$PROJECT_DIR$/microaccount/microaccount.iml" />
       <module fileurl="file://$PROJECT_DIR$/microcustomer/microcustomer.iml" filepath="$PROJECT_DIR$/microcustomer/microcustomer.iml" />
       <module fileurl="file://$PROJECT_DIR$/microetl/microetl.iml" filepath="$PROJECT_DIR$/microetl/microetl.iml" />

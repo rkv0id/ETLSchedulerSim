@@ -3,6 +3,8 @@ package com.tnbank.microetl.measures;
 import com.tnbank.microetl.entities.DimTransaction;
 import com.tnbank.microetl.entities.DimTransactionRequest;
 import com.tnbank.microetl.repositories.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,8 @@ import java.util.List;
 
 @Component
 public class ScheduledMeasures {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private final AccountTypeMeasureRepository accountTypeMeasureRepository;
     private final RequestDayMeasureRepository requestDayMeasureRepository;
     private final TransactionDayMeasureRepository transactionDayMeasureRepository;
@@ -82,6 +86,7 @@ public class ScheduledMeasures {
         transactionDayMeasure.setTodayNet(0);
         transactionDayMeasure.setTodayCount(0);
         transactionDayMeasure.setTodayAmount(0);
+        logger.info("Scheduled measures prepared for: " + LocalDate.now(Clock.systemUTC()));
     }
 
     @Scheduled(cron = "0 * * * * *") // Every 2 Hours
@@ -92,6 +97,7 @@ public class ScheduledMeasures {
         accountTypeMeasure.setTodayPremCount(dimAccountRepository.findAllByBeginTimestampAfterAndTypeCode(LocalDateTime.of(LocalDate.now(Clock.systemUTC()), LocalTime.MIN),"PREM").size());
         accountTypeMeasure.setTodayPentCount(dimAccountRepository.findAllByBeginTimestampAfterAndTypeCode(LocalDateTime.of(LocalDate.now(Clock.systemUTC()), LocalTime.MIN),"PENT").size());
         accountTypeMeasureRepository.save(accountTypeMeasure);
+        logger.info("Account measures done successfully @ " + LocalDateTime.now(Clock.systemUTC()));
     }
 
     @Scheduled(cron = "*/17 * * * * *") // Every 17 seconds
@@ -162,6 +168,7 @@ public class ScheduledMeasures {
                 .sum()
         );
         requestDayMeasureRepository.save(requestDayMeasure);
+        logger.info("Daily measures done successfully @ " + LocalDateTime.now(Clock.systemUTC()));
     }
 
 }

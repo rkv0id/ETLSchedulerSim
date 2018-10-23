@@ -2,19 +2,26 @@ package com.tnbank.agentui.ui;
 
 import com.tnbank.agentui.proxies.Services;
 import com.vaadin.annotations.Title;
-import com.vaadin.server.*;
+import com.vaadin.server.ClassResource;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.server.Page;
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.shared.Registration;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.net.URI;
-
+import java.time.Clock;
+import java.time.LocalDateTime;
 
 @SpringUI
 @Title(value = "Agency Simulation")
 public class IndexUI extends UI {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private VerticalLayout root;
     private DepositLayout depositLayout = new DepositLayout();
@@ -26,11 +33,15 @@ public class IndexUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+        logger.info("Session Initialized for: " + LocalDateTime.now(Clock.systemUTC()));
+
         setupLayout();
         addHeader();
         if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_MANAGER"))) {
+            logger.info("Manager Connected @ " + LocalDateTime.now(Clock.systemUTC()));
             addDash();
         } else if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(o -> o.toString().equals("ROLE_AGENT"))) {
+            logger.info("Agent Connected @ " + LocalDateTime.now(Clock.systemUTC()));
             addTxMenu();
         }
         addFooter();

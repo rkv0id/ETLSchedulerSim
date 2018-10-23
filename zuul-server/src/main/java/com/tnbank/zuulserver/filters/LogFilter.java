@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class LogFilter extends ZuulFilter {
-    Logger log = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public String filterType() {
@@ -32,7 +32,7 @@ public class LogFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         HttpServletRequest req = RequestContext.getCurrentContext().getRequest();
 
-        log.info("**** Requête interceptée ! L'URL est : {} " , req.getRequestURL());
+        logger.info("**** Requête interceptée ! L'URL est : {} " , req.getRequestURL());
 
         return null;
     }
