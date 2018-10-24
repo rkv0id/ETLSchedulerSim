@@ -18,20 +18,20 @@ To get this app to run on your side, you've got to:
 7. (Optional) Install your log etl tool
 8. Run the whole Spring Dashboard
 
-#####Clone this repo:
+####Clone this repo:
 To clone/get the project, you've got two ways:  
 - Either go in the folder you want to create the project in, open a terminal window and git clone the project: git clone <a>https://github.com/RKayX2/ETLSchedulerSim.git</a>  
 - Or you can download the zip file from this github repo, and extract it wherever you want to create your project folder
-#####Import the project to your IDE:
+####Import the project to your IDE:
 I made this project using Intellij IDEA (of course you can use both versions, Community or Ultimate).  
 So you choose to import the project without importing the underlying folders, then start by adding microservices files; you add the microservice folder as a module to your project through the project structure settings. Mark the java folder under the main/src folder as your Sources folder, and the resources folder as your Resources folder.  
 You then have got to repeat the process for each microservice/edge-microservice. Of course, when adding microservices as modules, you choose to import the maven project so it loads all of its dependencies and register them.  
-#####Create your own configuration repository:
+####Create your own configuration repository:
 To ensure better overall control for each aspect of this project (especially its deployment and its maintainability), I tended to externalize the configuration through a configuration server (using a Spring Cloud Config project: config-server edge microservice) that would load all the microservices configuration files from a github repository (yes, the config-server-repo is also a github repository #repoception).  
 So to make your own, you can choose to either host a config server on your own and link it to the Spring Cloud Config project (config-server) through its configuration file, or to create another git repository for your config files and only change the link in the config-server module properties file.
-#####Create your logs-repo directory:
+####Create your logs-repo directory:
 In this project, I tried to centralize the logging into a directory, that after, in deployment step, would be held into a server that splunk is listening to, pass it into ETL process, to some real time analysis on the debugging/maintaining side, and for real time bugs reporting without the need of the user to interfere.  
-#####Run the whole Spring Dashboard
+####Run the whole Spring Dashboard
 Finally, you can either choose to run the Spring Dashboard (including the whole set of microservices & edge microservices under) letting it figure out the order it needs to implement. (for IOC nerds, and trust me it knows what to run first and what next)  
 Or if ever you're so skeptical about it, you can run the whole thing in this order:
 1. ConfigServerApplication
