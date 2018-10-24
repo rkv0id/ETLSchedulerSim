@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02aab500-8955-49b1-bff7-9e459b778a75" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs-repo/agentui.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs-repo/agentui.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs-repo/microaccount.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs-repo/microaccount.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs-repo/microcustomer.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs-repo/microcustomer.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs-repo/microetl.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs-repo/microetl.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs-repo/microtransaction.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs-repo/microtransaction.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs-repo/zuul-server.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs-repo/zuul-server.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme-resources/readme-resources.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="02aab500-8955-49b1-bff7-9e459b778a75" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/agentui/target/" />
     <ignored path="$PROJECT_DIR$/microaccount/target/" />
     <ignored path="$PROJECT_DIR$/microcustomer/target/" />
@@ -96,8 +86,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="555">
-                <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+              <first_editor relative-caret-position="558">
+                <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               </first_editor>
               <second_editor />
             </state>
@@ -364,6 +354,7 @@
       <workItem from="1540331973440" duration="481000" />
       <workItem from="1540377538747" duration="1151000" />
       <workItem from="1540378914624" duration="2676000" />
+      <workItem from="1540381689115" duration="226000" />
     </task>
     <servers />
   </component>
@@ -372,9 +363,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-1" width="1924" height="1063" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18370607" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18530351" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -391,7 +381,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32947367" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32947367" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32947367" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32947367" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32947367" />
