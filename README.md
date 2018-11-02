@@ -8,7 +8,7 @@ PS* possibility of opensourcing this project whenever the first version of it co
 
 #### Getting it up & running
 To get this app to run on your side, you've got to:
-* Have some Spring framework/components knowledge. Well, the more you have, the more easier it will become to handle & maintain this project.
+* Have some Spring framework/components knowledge. Well, the more you have, the easier it will become to handle & maintain this project.
 1. Clone this repo
 2. Import the project to your IDE
 3. Create your own configuration config-server-repo
